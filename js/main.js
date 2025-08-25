@@ -45,7 +45,7 @@ setInterval(() => {
   quoteEl.textContent = `„${quotes[qi]}“`;
 }, 12000);
 
-// Links eintragen
-document.querySelectorAll('.btn-yt').forEach(a => a.href = 'https://youtube.com/');
-document.querySelectorAll('.btn-tt').forEach(a => a.href = 'https://www.tiktok.com/');
-document.querySelectorAll('.btn-dc').forEach(a => a.href = 'https://discord.com/invite/your-code');
+// Links
+document.querySelectorAll('.btn-yt').forEach(a => a.href = 'https://www.youtube.com/@CrazyFamilyLP/featured');
+document.querySelectorAll('.btn-tt').forEach(a => a.href = 'https://www.tiktok.com/@crazyfamilylp?is_from_webapp=1&sender_device=pc');
+document.querySelectorAll('.btn-dc').forEach(a => a.href = 'https://discord.gg/H4TT6yR78w');
