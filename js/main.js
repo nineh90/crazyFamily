@@ -30,22 +30,59 @@ nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   }
 }));
 
-// Random Quotes
+// Random Quotes als Chip im Hero
 const quotes = [
-  "Guter Ping, schlechte Entscheidungen.",
-  "Wenn’s laggt, liegt’s am Skill. Klar.",
-  "AFK? Nur, wenn die Pizza klingelt.",
-  "Mic check: 1, 2 – wo ist mein Loot?",
-  "GG? Eher WTF."
+  "Ich hasse Walle.",
+  "Fiebertraum!",
+  "Ich hasse Wasserlevel.",
+  "Meine Hände sind Wasser.",
+  "Hör doch mal auf hier so rumzuzappeln.",
+  "Team Kevin.",
+  "Team Alex.",
+  "Für Fortnite", 
+  "für Gondor!"
 ];
+
 const quoteEl = document.getElementById('quote');
 let qi = 0;
 setInterval(() => {
   qi = (qi + 1) % quotes.length;
+  // zufällige Chip-Farbe (1–3)
+  const variant = Math.floor(Math.random() * 3) + 1;
+  quoteEl.className = `quote chip chip--${variant}`;
   quoteEl.textContent = `„${quotes[qi]}“`;
-}, 12000);
+}, 6000);
+
 
 // Links
 document.querySelectorAll('.btn-yt').forEach(a => a.href = 'https://www.youtube.com/@CrazyFamilyLP/featured');
 document.querySelectorAll('.btn-tt').forEach(a => a.href = 'https://www.tiktok.com/@crazyfamilylp?is_from_webapp=1&sender_device=pc');
 document.querySelectorAll('.btn-dc').forEach(a => a.href = 'https://discord.gg/H4TT6yR78w');
+
+// === Insider Sprüche als Chips ===
+(function(){
+  const insider = [
+    "Ich hasse Walle.",
+    "Fiebertraum!",
+    "Ich hasse Wasserlevel.",
+    "Meine Hände sind Wasser.",
+    "Hör doch mal auf hier so rumzuzappeln.",
+    "Team Kevin",
+    "Team Alex",
+    "Für Fortnite",
+    "für Gondor!"
+  ];
+
+  function renderChips(containerId){
+    const el = document.getElementById(containerId);
+    if(!el) return;
+    el.innerHTML = "";
+    insider.forEach((txt, i) => {
+      const span = document.createElement("span");
+      span.className = `chip chip--${(i % 3)+1}`;
+      span.textContent = txt;
+      el.appendChild(span);
+    });
+  }
+  renderChips("insider-family");
+})();
