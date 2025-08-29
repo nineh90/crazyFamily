@@ -1,6 +1,6 @@
 // Splash → ausblenden
 const splash = document.getElementById('splash');
-window.addEventListener('load', () => setTimeout(() => splash.classList.add('hide'), 800));
+window.addEventListener('load', () => setTimeout(() => splash.classList.add('hide'), 1800));
 
 // Header shrink on scroll (throttled)
 let ticking = false;
