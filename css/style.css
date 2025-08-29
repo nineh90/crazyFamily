@@ -86,11 +86,7 @@ img{max-width:100%; height:auto}
   font-weight:700; white-space:nowrap;
 }
 .btn:hover{filter:brightness(1.05)}
-.btn-lg{padding:.8rem 1.1rem; font-size:clamp(0.95rem, 2.6vw, 1.05rem)}
-.btn-xl{padding:1rem 1.3rem; font-size:clamp(1rem, 3vw, 1.1rem)}
-.btn-yt{background:var(--yt)}
-.btn-tt{background:linear-gradient(45deg,#000,#111)}
-.btn-dc{background:var(--dc)}
+
 
 /* Hero */
 .hero{padding:clamp(44px,6vw,72px) 0 36px}
@@ -200,6 +196,10 @@ img{max-width:100%; height:auto}
 /* Quote */
 .section--quote{padding:16px 0}
 .quote{text-align:center; font-weight:800; letter-spacing:.3px; margin:0; color:#fff; text-shadow:0 0 24px rgba(255,62,165,.45); font-size:clamp(16px,4.5vw,22px)}
+
+/* Video Sektion auf Index */
+
+.logo_video{width: 65px; height: auto;}
 
 /* Footer */
 .footer{padding:20px 0; border-top:1px solid rgba(255,255,255,.06)}
@@ -343,3 +343,21 @@ img{max-width:100%; height:auto}
   .chip:hover { transform: translateY(-2px) scale(1.02); }
 }
 
+/* Shop */
+.shop-note {
+  margin: 2rem auto;
+  max-width: 780px;
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.4rem;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+.shop-note h2 {
+  margin-top: 0;
+}
+.shop-note p {
+  color: var(--muted);
+  margin: .6rem 0;
+}
