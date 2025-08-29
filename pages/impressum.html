@@ -11,32 +11,7 @@
   <a class="skip" href="#main">Zum Inhalt springen</a>
 
   <!-- Header -->
-  <header id="site-header" class="header">
-    <div class="container header__inner">
-      <a class="brand" href="../index.html">
-        <img id="brandLogo" src="../assets/images/logo-duo.png" alt="crazyFamily" width="160" height="120">
-        <span class="wordmark">CRAZY FAMILY</span>
-      </a>
-
-      <!-- Burger -->
-      <button id="navToggle" class="burger" aria-expanded="false" aria-controls="primaryNav" aria-label="Menü öffnen">
-        <span></span><span></span><span></span>
-      </button>
-
-      <!-- Nav -->
-      <nav id="primaryNav" class="nav" data-collapsed="true">
-        <a href="../index.html#family">Family</a>
-        <a href="../index.html#videos">Videos</a>
-        <a href="../index.html#aktuell">Aktuell</a>
-        <a href="../index.html#kontakt">Kontakt</a>
-        <div class="nav-socials">
-          <a class="btn btn-tt" href="#" target="_blank" rel="noopener">TikTok</a>
-          <a class="btn btn-yt" href="#" target="_blank" rel="noopener">YouTube</a>
-          <a class="btn btn-dc" href="#" target="_blank" rel="noopener">Discord</a>
-        </div>
-      </nav>
-    </div>
-  </header>
+  <div data-include="/partials/header.html"></div>
 
   <!-- Main -->
   <main id="main" class="container">
@@ -99,20 +74,9 @@
   </main>
 
   <!-- Footer -->
-  <footer id="kontakt" class="footer">
-    <div class="container footer__inner">
-      <div>
-        <strong>CRAZY FAMILY</strong> – Kevin & Alex<br>
-        <a href="impressum.html">Impressum</a>
-      </div>
-      <div class="socials">
-        <a class="btn btn-tt" href="#" target="_blank" rel="noopener">TikTok</a>
-        <a class="btn btn-yt" href="#" target="_blank" rel="noopener">YouTube</a>
-        <a class="btn btn-dc" href="#" target="_blank" rel="noopener">Discord</a>
-      </div>
-    </div>
-  </footer>
+  <div data-include="/partials/footer.html"></div>
 
   <script src="../js/main.js" defer></script>
+  <script src="/assets/js/includes.js" defer></script>
 </body>
 </html>

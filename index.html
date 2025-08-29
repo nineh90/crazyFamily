@@ -6,6 +6,7 @@
   <title>CRAZY FAMILY – Kevin & Alex</title>
   <meta name="description" content="crazyFamily: Kevin & Alex – TikTok, YouTube & Discord." />
   <meta name="theme-color" content="#0B0E14" />
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
   <link rel="preload" href="assets/images/logo-duo.png" as="image" imagesrcset="assets/images/logo-duo.png 1x">
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -14,43 +15,18 @@
 
   <!-- Splash -->
   <div id="splash" aria-hidden="true">
-    <img src="assets/images/logo-duo.png" alt="" class="splash-logo splash-flimmer" width="1000" height="750">
+    <img src="assets/images/logo-duo.png" alt="" class="splash-logo" width="1000" height="750">
   </div>
 
   <!-- Header -->
-  <header id="site-header" class="header">
-    <div class="container header__inner">
-      <a class="brand" href="#">
-        <img id="brandLogo" src="assets/images/logo-duo.png" alt="crazyFamily" width="160" height="120" loading="eager">
-        <span class="wordmark">CRAZY FAMILY</span>
-      </a>
-
-      <!-- Burger -->
-      <button id="navToggle" class="burger" aria-expanded="false" aria-controls="primaryNav" aria-label="Menü öffnen">
-        <span></span><span></span><span></span>
-      </button>
-
-      <!-- Nav -->
-      <nav id="primaryNav" class="nav" data-collapsed="true">
-        <a href="#family">Family</a>
-        <a href="#videos">Videos</a>
-        <a href="#aktuell">Aktuell</a>
-        <a href="#kontakt">Kontakt</a>
-        <div class="nav-socials">
-          <a class="btn-tt" href="" target="_blank" rel="noopener"><img class="logo_header" src="assets/images/tiktok_logo_icon.png" alt="TikTok Logo"></a>
-          <a class="btn-yt" href="" target="_blank" rel="noopener"><img class="logo_header" src="assets/images/youtube2_icon.png" alt="YouTube Logo"></a>
-          <a class="btn-dc" href="" target="_blank" rel="noopener"><img class="logo_header" src="assets/images/discord_icon.png" alt="Discord Logo"></a>
-        </div>
-      </nav>
-    </div>
-  </header>
+  <div data-include="/partials/header.html"></div>
 
   <main id="main">
     <!-- Hero -->
     <section class="hero">
       <div class="container hero__inner">
-        <h1 class="splash-flimmer">Welcome to the</h1>
-        <img class="hero__logo splash-flimmer" src="assets/images/logo-duo.png" alt="Kevin & Alex" width="1000" height="750" loading="eager">
+        <h1 class="logo-font">Welcome to the</h1>
+        <img class="hero__logo neon flimmer" src="assets/images/logo-duo.png" alt="Kevin & Alex" width="1000" height="750" loading="eager">
   
         <!-- Random Quote direkt unter der Headline -->
         <div class="hero-quotes">
@@ -122,19 +98,9 @@
   </main>
 
   <!-- Footer -->
-  <footer id="kontakt" class="footer">
-    <div class="container footer__inner">
-      <div>
-        <strong>CRAZY FAMILY</strong> – Kevin & Alex<br>
-        <a style="color: #fff;" href="pages/impressum.html">Impressum</a>
-      </div>
-      <div class="socials">
-        <a class="btn btn-tt" href="#" target="_blank" rel="noopener">TikTok</a>
-        <a class="btn btn-yt" href="#" target="_blank" rel="noopener">YouTube</a>
-        <a class="btn btn-dc" href="#" target="_blank" rel="noopener">Discord</a>
-      </div>
-    </div>
-  </footer>
+  <div data-include="/partials/footer.html"></div>
+  
   <script src="js/main.js" defer></script>
+  <script src="./assets/js/includes.js" defer></script>
 </body>
 </html>

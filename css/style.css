@@ -31,6 +31,36 @@ img{max-width:100%; height:auto}
 .logo_header{height: 34px; width: auto;}
 .logo_hero{height: 35px; width: auto;}
 
+.logo-font {
+  font-family: 'Audiowide', sans-serif;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ff3ea5;
+  text-shadow:
+    0 0 5px #ff3ea5,
+    0 0 10px #ff3ea5,
+    0 0 20px #ff3ea5,
+    0 0 40px #ff3ea5;
+  animation: logo-flicker 3s infinite;
+}
+
+@keyframes logo-flicker {
+  0%, 18%, 20%, 22%, 50%, 52%, 100% {
+    opacity: 1;
+    text-shadow:
+      0 0 5px #ff3ea5,
+      0 0 10px #ff3ea5,
+      0 0 20px #ff3ea5,
+      0 0 40px #ff3ea5;
+  }
+  19%, 21%, 51% {
+    opacity: 0.4;
+    text-shadow: none;
+  }
+}
+
+
 /* Burger */
 .burger{margin-left:auto; display:inline-grid; gap:4px; background:transparent; border:0; padding:.4rem; cursor:pointer}
 .burger span{display:block; width:22px; height:2px; background:#fff; border-radius:2px}
@@ -210,11 +240,53 @@ img{max-width:100%; height:auto}
 }
 
 /* Splash */
-#splash{position:fixed; inset:0; display:grid; place-items:center; background:var(--bg); z-index:100; transition:opacity .6s ease, visibility .6s ease; visibility:visible; opacity:1}
-#splash.hide{opacity:0; visibility:hidden}
-.splash-logo{width:min(86vw,560px); animation:splashIn .9s cubic-bezier(.2,.9,.2,1) both; filter:drop-shadow(0 14px 48px rgba(255,62,165,.25))}
-@keyframes splashIn{0%{transform:scale(.86) rotate(-2deg); opacity:0}60%{transform:scale(1.05) rotate(1.5deg); opacity:1}100%{transform:scale(1) rotate(0)}}
-.scrolled .brand img{transform:scale(.78)}
+#splash {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  z-index: 100;
+  transition: opacity .6s ease, visibility .6s ease;
+  visibility: visible;
+  opacity: 1;
+}
+#splash.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.splash-logo {
+  width: min(86vw, 560px);
+  animation: splashFlimmer 3s forwards; /* ersetzt splashIn */
+  filter: drop-shadow(0 14px 48px rgba(255,62,165,.25));
+}
+
+/* neues Flimmern + Einblend-/Ausblend-Animation */
+@keyframes splashFlimmer {
+  0% {
+    transform: scale(.86) rotate(-2deg);
+    opacity: 0;
+    filter: brightness(1) drop-shadow(0 0 12px #ff3ea5);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    opacity: 1;
+    filter: brightness(1.2) drop-shadow(0 0 22px #ff3ea5);
+  }
+  20%, 40%, 60%, 80% {
+    opacity: 0.85;
+    filter: brightness(0.8) drop-shadow(0 0 10px #ff3ea5);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+    opacity: 0; /* am Ende ausblenden */
+    filter: brightness(1) drop-shadow(0 0 12px #ff3ea5);
+  }
+}
+
+.scrolled .brand img {
+  transform: scale(.78);
+}
 
 @media (hover:hover){
   .card:hover{transform:translateY(-3px); box-shadow:var(--shadow)}
