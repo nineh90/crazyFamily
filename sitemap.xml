@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Startseite -->
+  <url>
+    <loc>https://crazy-family.info/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Shop-Seite -->
+  <url>
+    <loc>https://crazy-family.info/shop.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Impressum -->
+  <url>
+    <loc>https://crazy-family.info/pages/impressum.html</loc>
+    <priority>0.5</priority>
+  </url>
+</urlset>

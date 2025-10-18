@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://crazy-family.info/sitemap.xml
