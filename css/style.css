@@ -1103,6 +1103,151 @@ body.scrolled .header {
   }
 }
 
+/* ===== Sounds – Equalizer Hintergrund ===== */
+.eq-bg {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 0 1vw 80px;
+  pointer-events: none;
+  z-index: 5;
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+.eq-bg.playing { opacity: 1; }
+
+.eq-bar {
+  flex: 1;
+  max-width: 18px;
+  border-radius: 3px 3px 0 0;
+  animation: eqBounce 0.5s ease-in-out infinite alternate;
+  transform-origin: bottom;
+}
+.eq-bar:nth-child(3n)   { background: rgba(255,62,165,0.28); }
+.eq-bar:nth-child(3n+1) { background: rgba(0,245,255,0.22); }
+.eq-bar:nth-child(3n+2) { background: rgba(182,255,0,0.18); }
+
+@keyframes eqBounce {
+  0%   { transform: scaleY(0.05); }
+  100% { transform: scaleY(1); }
+}
+
+/* ===== Sounds – Media Player ===== */
+.sound-player {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(11,14,20,0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 2px solid rgba(255,62,165,0.5);
+  box-shadow: 0 -4px 30px rgba(255,62,165,0.15);
+  padding: 0.6rem 1rem 0.8rem;
+  z-index: 1500;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+.sound-player.active { transform: translateY(0); }
+
+.sound-player__track {
+  font-size: clamp(0.78rem, 2.5vw, 0.92rem);
+  font-weight: 700;
+  color: var(--pink);
+  text-shadow: 0 0 10px rgba(255,62,165,0.4);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.sound-player__controls {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+.sound-player__controls button {
+  background: none;
+  border: 1.5px solid rgba(255,255,255,0.15);
+  color: var(--text);
+  border-radius: 50%;
+  width: 38px; height: 38px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sound-player__controls button:hover {
+  border-color: var(--pink);
+  color: var(--pink);
+  transform: scale(1.1);
+}
+#playerPlay {
+  width: 46px; height: 46px;
+  font-size: 1.15rem;
+  border-color: var(--pink);
+  color: var(--pink);
+  box-shadow: 0 0 12px rgba(255,62,165,0.3);
+}
+#playerPlay:hover {
+  background: rgba(255,62,165,0.12);
+  box-shadow: 0 0 20px rgba(255,62,165,0.55);
+}
+
+.sound-player__progress {
+  height: 5px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 3px;
+  cursor: pointer;
+  margin-bottom: 0.25rem;
+}
+.sound-player__fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--pink), var(--lime));
+  border-radius: 3px;
+  width: 0%;
+  box-shadow: 0 0 6px rgba(255,62,165,0.5);
+  pointer-events: none;
+}
+
+.sound-player__time {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+/* Platz für Player am Seitenende */
+body.player-active { padding-bottom: 115px; }
+
+/* Sound-Card: Play + Share nebeneinander */
+.sound-card-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 12px;
+}
+.btn-sound { margin-top: 0; } /* reset, jetzt in .sound-card-actions */
+
+.btn-share {
+  background: rgba(255,255,255,0.05);
+  border: 1.5px solid rgba(255,255,255,0.12);
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 0.55rem 1rem;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-share:hover { border-color: var(--cyan); color: var(--cyan); }
+.btn-share.copied { border-color: var(--lime); color: var(--lime); }
+
 /* ===== Season Banner ===== */
 #season-banner {
   display: none;

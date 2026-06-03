@@ -46,6 +46,9 @@
   <!-- Header -->
   <?php include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php'; ?>
 
+  <!-- Equalizer Hintergrund (wird per JS befüllt) -->
+  <div id="eqBg" class="eq-bg" aria-hidden="true"></div>
+
   <!-- Main -->
   <main id="main" class="section">
     <div class="container">
@@ -62,6 +65,23 @@
 
   <!-- Footer -->
   <?php include $_SERVER['DOCUMENT_ROOT'] . '/partials/footer.php'; ?>
+
+  <!-- Media Player -->
+  <div id="soundPlayer" class="sound-player" role="region" aria-label="Musik-Player">
+    <div class="sound-player__track" id="playerTitle">—</div>
+    <div class="sound-player__controls">
+      <button id="playerPrev" aria-label="Vorheriger Track">⏮</button>
+      <button id="playerPlay" aria-label="Abspielen / Pause">▶</button>
+      <button id="playerNext" aria-label="Nächster Track">⏭</button>
+    </div>
+    <div class="sound-player__progress" id="playerProgress">
+      <div class="sound-player__fill" id="playerFill"></div>
+    </div>
+    <div class="sound-player__time">
+      <span id="playerCurrent">0:00</span>
+      <span id="playerDuration">0:00</span>
+    </div>
+  </div>
 
   <script src="../js/main.js" defer></script>
   <script src="/assets/js/sounds.js" defer></script>
