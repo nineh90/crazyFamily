@@ -39,4 +39,3 @@
 
   </div>
 </header>
-<script src="/assets/js/livestream.js" defer></script>

@@ -160,9 +160,6 @@
           <h1 class="hero__title logo-font">CRAZYFAMILY</h1>
           <p class="hero__tagline">Alex &amp; Kevin – Gaming ohne Druck.<br><strong>Echt. Laut. Live.</strong></p>
 
-          <!-- Live-Badge (wird per JS befüllt wenn isLive: true) -->
-          <div id="hero-live-badge"></div>
-
           <div class="hero__schedule">
             <span class="schedule-badge">🎮 Mo · Mi · Fr · 17 Uhr auf TikTok</span>
           </div>
@@ -309,7 +306,6 @@
   <?php include $_SERVER['DOCUMENT_ROOT'] . '/partials/footer.php'; ?>
 
   <script src="js/main.js" defer></script>
-  <script src="/assets/js/livestream.js" defer></script>
   <script src="./assets/js/shop-highlights.js"></script>
   <script src="/assets/js/seasonal.js" defer></script>
   <script src="/assets/js/qanda.js" defer></script>
