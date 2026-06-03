@@ -1,0 +1,169 @@
+[
+  {
+    "id": "crazyfamily-original-hoodie",
+    "name": "CRAZYFAMILY Original Hoodie",
+    "price": 39.99,
+    "badge": "Bestseller", 
+    "images": [
+      "/assets/images/shop/crazyfamily_original_hoodie_front_ansicht.jpg",
+      "/assets/images/shop/crazyfamily_original_hoodie_detail_ansicht.jpg",
+      "/assets/images/shop/crazyfamily_original_hoodie_back_ansicht.jpg",
+      "/assets/images/shop/crazyfamily_original_logo_detail_ansicht.jpg"
+    ],
+    "link": "https://crazyfamily.info/pages/shop.html#!/crazyfamily+original-A68f51dd4a87f551fafbd93f0?productType=1047&sellable=jN9MlBLdonFB9aqpvJz5-1047-22&appearance=2",
+    "isActive": true,
+    "priority": 100,
+    "season": "all",
+    "description": "Der CRAZYFAMILY Original Hoodie verbindet Komfort mit Style. Kuschelig warm, robust verarbeitet und perfekt für Fans von Alex & Kevin. Unisex-Schnitt, Kängurutasche, Kapuze mit Kordel, angenehm glatte Stoffqualität (280 g/m²) und weich angeraute Innenseite. Ein echtes Wohlfühl-Basic für jeden Tag."
+  },
+  {
+  "id": "crazyfamily-original-shirt",
+  "name": "CRAZYFAMILY Original T-Shirt",
+  "price": 23.49,
+  "badge": "T-Shirt",
+  "images": [
+    "/assets/images/shop/crazyfamily_shirt_front_ansicht.jpg",
+    "/assets/images/shop/crazyfamily_shirt_detail_ansicht.jpg",
+    "/assets/images/shop/crazyfamily_shirt_back_ansicht.jpg",
+    "/assets/images/shop/crazyfamily_original_logo_detail_ansicht.jpg"
+  ],
+  "link": "https://crazyfamily.info/pages/shop.html#!/crazyfamily+original-A68f51dd4a87f551fafbd93f0?productType=6&sellable=jN9MlBLdonFB9aqpvJz5-6-7&appearance=2",
+  "isActive": true,
+  "priority": 9,
+  "season": "all",
+  "description": "Unser CRAZYFAMILY Original T-Shirt ist ein echter Freizeit-Klassiker. Der lockere Regular-Fit sorgt für maximalen Komfort im Alltag und beim Zuschauen der Streams. Weiche Stoffqualität (153 g/m²) aus 100% Baumwolle, langlebig und angenehm zu tragen. Ein perfektes Basic für Fans von Alex & Kevin – stylisch, bequem und absolut alltagstauglich."
+ },
+{
+  "id": "crazyfamily-original-baseballcap",
+  "name": "CRAZYFAMILY Original Baseballkappe",
+  "price": 24.99,
+  "badge": "Cap",
+  "images": [
+    "/assets/images/shop/crazyfamily_original_baseballkappe_front_ansicht.jpg",
+    "/assets/images/shop/crazyfamily_original_baseballkappe_seiten_ansicht.jpg",
+    "/assets/images/shop/crazyfamily_original_baseballkappe_detail_1_ansicht.jpg",
+    "/assets/images/shop/crazyfamily_original_logo_detail_ansicht.jpg"
+  ],
+  "link": "https://crazyfamily.info/pages/shop.html#!/crazyfamily+logo+und+schrift+getrennt-A68f7bfff9dc7e31881b1eeb6?productType=15&sellable=0kBNr1kj0mSQmbAbemka-15-34&appearance=14&size=29",
+  "isActive": true,
+  "priority": 8,
+  "season": "all",
+  "description": "Die CRAZYFAMILY Original Baseballkappe ist das perfekte Accessoire für Alltag, Sport und Streams. Universell tragbar – ob nach vorne, seitlich oder nach hinten – und dank robustem Baumwollmaterial ideal für Sonne, Wind und Regen. Mit verstellbarem Metallverschluss, nahtfreiem Frontpanel und sportlich-coolem Look. Ein Must-Have für jeden CRAZYFAMILY Fan."
+},
+{
+  "id": "crazyfamily-original-tasse",
+  "name": "CRAZYFAMILY Original Tasse",
+  "price": 17.99,
+  "badge": "Tasse",
+  "images": [
+    "/assets/images/shop/crazyfamily_original_tasse_front_ansicht1.jpg",
+    "/assets/images/shop/crazyfamily_original_tasse_front_ansicht.jpg",
+    "/assets/images/shop/crazyfamily_original_logo_detail_ansicht.jpg"
+  ],
+  "link": "https://crazyfamily.info/pages/shop.html#!/crazyfamily+original-A68f51dd4a87f551fafbd93f0?productType=949&sellable=jN9MlBLdonFB9aqpvJz5-949-32&appearance=2&size=29",
+  "isActive": true,
+  "priority": 7,
+  "season": "all",
+  "description": "Vom frühen Vogel empfohlen: Die CRAZYFAMILY Original Tasse sorgt schon morgens für gute Laune. Der glänzende Keramikbecher mit 325 ml Fassungsvermögen ist innen und außen durchgehend eingefärbt und lässt jedes Getränk perfekt aussehen. Aus 100% Keramik – robust, farbstark und ideal für Kaffee, Tee oder heiße Schokolade."
+},
+{
+  "id": "crazyfamily-original-badelatschen",
+  "name": "CRAZYFAMILY Original Badelatschen (Männer)",
+  "price": 22.99,
+  "badge": "Badelatschen",
+  "images": [
+    "/assets/images/shop/crazyfamily_original_badelatschen_maenner.jpg",
+    "/assets/images/shop/crazyfamily_original_badelatschen_maenner_detail.jpg",
+    "/assets/images/shop/crazyfamily_original_logo_detail_ansicht.jpg"
+  ],
+  "link": "https://crazyfamily.info/pages/shop.html#!/crazyfamily+original-A68f51dd4a87f551fafbd93f0?productType=3207&sellable=jN9MlBLdonFB9aqpvJz5-3207-218&appearance=2",
+  "isActive": true,
+  "priority": 6,
+  "season": "all",
+  "description": "Die CRAZYFAMILY Original Badelatschen bieten perfekten Komfort für Strand, Schwimmbad oder zuhause. Mit geformtem Fußbett, breiter stabiler Lasche und rutschhemmender Sohle für sicheren Halt – auch in Nassbereichen. Das Design wird spiegelgleich auf beide Latschen übertragen. Material: robustes PVC."
+},
+{
+  "id": "crazyfamily-original-badelatschen-frauen",
+  "name": "CRAZYFAMILY Original Badelatschen (Frauen)",
+  "price": 22.99,
+  "badge": "Badelatschen",
+  "images": [
+    "/assets/images/shop/crazyfamily_original_badelatschen_frauen.jpg",
+    "/assets/images/shop/crazyfamily_original_badelatschen_maenner_detail.jpg",
+    "/assets/images/shop/crazyfamily_original_logo_detail_ansicht.jpg"
+  ],
+  "link": "https://crazyfamily.info/pages/shop.html#!/crazyfamily+original-A68f51dd4a87f551fafbd93f0?productType=3207&sellable=jN9MlBLdonFB9aqpvJz5-3207-218&appearance=2",
+  "isActive": true,
+  "priority": 5,
+  "season": "all",
+  "description": "Die CRAZYFAMILY Original Badelatschen für Frauen bieten Komfort und sicheren Halt – ideal für Strand, Pool und Zuhause. Mit geformtem Fußbett, breiter stabiler Lasche und rutschhemmender Sohle. Das Design wird identisch auf beide Latschen übertragen. Material: robustes PVC."
+},
+{
+  "id": "crazyfamily-xmas-hoodie-kontrast",
+  "name": "CRAZYFAMILY Hoodie – XMAS Kontrast Edition",
+  "price": 42.49,
+  "badge": "XMAS",
+  "images": [
+    "/assets/images/shop/crazyfamily_hoodie_kontrast_xmas.jpg",
+    "/assets/images/shop/crazyfamily_xmas_edition_detail.jpg"
+  ],
+  "link": "https://crazyfamily.info/pages/shop.html#!/xmas+edition-A6924a6b76bee861bac0cb012?productType=1007&sellable=w85z4G50vwSRdNydVRRb-1007-22&appearance=109",
+  "isActive": false,
+  "priority": 20,
+  "season": "christmas",
+  "description": "Ein Hoodie für alle, die sich nicht entscheiden müssen: Die CRAZYFAMILY XMAS Kontrast Edition bringt schwarzes Design und festliche Akzente perfekt zusammen. Mit doppellagiger Kapuze, kontrastfarbenen Zugbändern, weicher 280 g/m² Stoffqualität und klassischer Kängurutasche ist dieser Unisex-Hoodie der ideale Begleiter für gemütliche Wintertage, Weihnachtsspaziergänge oder entspannte Abende vor dem Stream."
+},
+{
+  "id": "crazyfamily-xmas-hoodie-kleid",
+  "name": "CRAZYFAMILY Hoodie-Kleid – XMAS Edition",
+  "price": 44.99,
+  "badge": "XMAS",
+  "images": [
+    "/assets/images/shop/crazyfamily_hoodie_kleid_xmas_edition.jpg",
+    "/assets/images/shop/crazyfamily_xmas_edition_detail.jpg"
+  ],
+  "link": "https://crazyfamily.info/pages/shop.html#!/xmas+edition-A6924a6b76bee861bac0cb012?productType=1249&sellable=w85z4G50vwSRdNydVRRb-1249-23&appearance=2",
+  "isActive": false,
+  "priority": 19,
+  "season": "christmas",
+  "description": "Gemütlicher wird’s nicht! Das CRAZYFAMILY Hoodie-Kleid in der limitierten XMAS Edition ist dein persönliches Winter-Wohlfühl-Outfit. Mit extrabreiten Rippstrickbündchen, weicher 280 g/m² Stoffqualität und klassischer Kängurutasche bietet es ultimativen Komfort für Zuhause, Weihnachtsmärkte oder chillige Abende vor dem Stream. Perfekt zu Leggings, Strumpfhose oder Skinny Jeans – und ein Must-Have für Fans der CRAZYFAMILY."
+},
+{
+  "id": "crazyfamily-xmas-thermobecher",
+  "name": "CRAZYFAMILY Thermobecher – XMAS Edition",
+  "price": 19.99,
+  "badge": "XMAS",
+  "images": [
+    "/assets/images/shop/crazyfamily_thermobecher_mit_tragegriff_xmas_edition.jpg",
+    "/assets/images/shop/crazyfamily_xmas_edition_detail.jpg"
+  ],
+  "link": "https://crazyfamily.info/pages/shop.html#!/xmas+edition-A6924a6b76bee861bac0cb012?productType=773&sellable=w85z4G50vwSRdNydVRRb-773-39&appearance=1&size=29",
+  "isActive": false,
+  "priority": 18,
+  "season": "christmas",
+  "description": "Heißgetränke unterwegs genießen – mit der CRAZYFAMILY XMAS Edition des doppelwandigen Thermobechers! Dank Drehverschluss, komfortablem Tragegriff und 414 ml Volumen bleibt dein Kaffee oder Tee länger heiß. Robuster Edelstahl, BPA-frei und perfekt für Winterspaziergänge, Weihnachtsmärkte oder lange Stream-Abende. Hinweis: Der Trinkverschluss ist nicht auslaufsicher."
+},
+{
+  "id": "crazyfamily-xmas-tasse",
+  "name": "CRAZYFAMILY Tasse – XMAS Edition",
+  "price": 17.99,
+  "badge": "XMAS",
+  "images": [
+    "/assets/images/shop/crazyfamily_tasse_xmas_edition.jpg",
+    "/assets/images/shop/crazyfamily_xmas_edition_detail.jpg"
+  ],
+  "link": "https://crazyfamily.info/pages/shop.html#!/xmas+edition-A6924a6b76bee861bac0cb012?productType=949&sellable=w85z4G50vwSRdNydVRRb-949-32&appearance=2&size=29",
+  "isActive": false,
+  "priority": 17,
+  "season": "christmas",
+  "description": "Für den perfekten Start in die festliche Jahreszeit: Die CRAZYFAMILY XMAS Tasse sorgt mit ihrem glänzenden Keramikfinish und dem farbigen Innenleben schon morgens für Weihnachtsstimmung. 325 ml Fassungsvermögen, hochwertige Verarbeitung und ideal für Kaffee, Tee oder Kakao. Von Hand spülen empfohlen."
+}
+
+
+
+
+
+
+
+
+]

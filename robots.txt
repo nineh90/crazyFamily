@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
-Sitemap: https://crazy-family.info/sitemap.xml
+Disallow: /config.php
+
+Sitemap: https://crazyfamily.info/sitemap_index.xml

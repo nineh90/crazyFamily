@@ -1,0 +1,95 @@
+[
+  {
+    "name": "Anja",
+    "rolle": "Moderatorin | Autorin",
+    "bild": "/assets/images/moderator_anja.png",
+    "beschreibung": "Hält den Überblick und sorgt für klare Abläufe in den Livestreams. Immer freundlich, souverän und absolut zuverlässig – die gute Seele im Hintergrund. Neben ihrer Rolle bei der CRAZYFAMILY ist sie außerdem Autorin von Kinderbüchern und begeistert mit fantasievollen Geschichten junge Leserinnen und Leser.",
+    "links": {
+      "tiktok": "https://www.tiktok.com/@anjaswelt.autorin?_r=1&_t=ZN-91zjJJuDhd0",
+      "amazon": "https://amazon.com/author/anjasarder"
+    }
+  },
+  {
+    "name": "Paddy",
+    "rolle": "Moderator",
+    "bild": "/assets/images/moderator_paddy.png",
+    "beschreibung": "Hält den Laden zusammen, wenn’s wild wird. Immer mit Humor, aber klar, wenn’s drauf ankommt.",
+    "links": {
+      "tiktok": "https://www.tiktok.com/@badpsycho90?_t=ZN-90f1dkiiZJG&_r=1"
+    }
+  },
+  {
+    "name": "Danny",
+    "rolle": "Moderator",
+    "bild": "/assets/images/moderator_danny.png",
+    "beschreibung": "Bringt Struktur ins Chaos – und Chaos in die Struktur. Immer für einen Spaß zu haben.",
+    "links": {
+      "tiktok": "https://www.tiktok.com/@crazyfamilylp?is_from_webapp=1&sender_device=pc"
+    }
+  },
+  {
+    "name": "Candy",
+    "rolle": "Moderatorin",
+    "bild": "/assets/images/moderator_candy.png",
+    "beschreibung": "Herzlich, klar, direkt – perfekte Mischung aus Charme und Durchsetzungsvermögen.",
+    "links": {
+      "tiktok": "https://www.tiktok.com/@candy_schlicht?_t=ZN-90f1YA3wY5u&_r=1"
+    }
+  },
+  {
+    "name": "Nikk",
+    "rolle": "Moderator",
+    "bild": "/assets/images/moderator_nikk.png",
+    "beschreibung": "Direkt, aufmerksam und immer wachsam im Chat. Hat alles im Blick und schreitet ein, bevor Chaos entsteht.",
+    "links": {
+      "tiktok": ""
+    }
+  },
+  {
+    "name": "Sunny",
+    "rolle": "Maskottchen & Feelgood-Team",
+    "bild": "/assets/images/hund_sunny.png",
+    "beschreibung": "Unsere vierbeinige Moderatorin. Spürt jede Stimmung, liebt Aufmerksamkeit und sorgt für gute Laune im Chat.",
+    "links": {
+      "tiktok": "https://www.tiktok.com/@sunnycam28?is_from_webapp=1&sender_device=pc",
+      "website": "https://nils-digital.de/pages/sunnycam.html"
+    }
+  },
+  {
+    "name": "Nils-Digital",
+    "rolle": "Web, Technik & Support",
+    "bild": "/assets/images/moderator_nils_digital_sunny.png",
+    "beschreibung": "Technischer Support und Umsetzung der CRAZYFAMILY-Webseite. Zuständig für Webdesign, Struktur und digitale Lösungen im Hintergrund.",
+    "links": {
+      "website": "https://nils-digital.de"
+    }
+  },
+  {
+    "name": "Susi",
+    "rolle": "Moderatorin",
+    "bild": "/assets/images/moderator_susi.png",
+    "beschreibung": "Unterstützt das CRAZYFAMILY-Team im Chat, behält den Überblick und sorgt mit Herz und klarer Linie für gute Stimmung.",
+    "links": {
+      "tiktok": "https://www.tiktok.com/@susisusse?_r=1&_t=ZG-95qBbc7STo0"
+    }
+  },
+  {
+    "name": "SGE",
+    "rolle": "Moderator",
+    "bild": "/assets/images/moderator_sge.png",
+    "beschreibung": "Unterstützt die Streams als Moderator, achtet auf den Chat und ist zur Stelle, wenn im CRAZYFAMILY-Chaos Ordnung gebraucht wird.",
+    "links": {
+      "tiktok": "https://www.tiktok.com/@ossiwulf93?_r=1&_t=ZG-95qBWTv7KAi"
+    }
+  },
+  {
+    "name": "Du?",
+    "rolle": "Moderator/in gesucht",
+    "bild": "/assets/images/moderator_mystery.png",
+    "beschreibung": "Werde Teil der CRAZYFAMILY – melde dich, wenn du Lust auf Streams, Chat & Chaos hast! Schreib uns auf Discord oder TikTok.",
+    "links": {
+      "discord": "https://discord.gg/H4TT6yR78w",
+      "tiktok": "https://www.tiktok.com/@crazyfamilylp?is_from_webapp=1&sender_device=pc"
+    }
+  }
+]

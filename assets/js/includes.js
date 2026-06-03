@@ -1,14 +1,24 @@
 (async function loadIncludes() {
   const slots = Array.from(document.querySelectorAll('[data-include]'));
-  await Promise.all(slots.map(async (slot) => {
-    const url = slot.getAttribute('data-include');
-    const res = await fetch(url, { cache: 'no-cache' });
-    const html = await res.text();
-    // outerHTML ersetzt den Platzhalter direkt
-    slot.outerHTML = html;
-  }));
+  
+  // Wenn keine Include-DIVs vorhanden sind, einfach normal fortfahren
+  if (!slots.length) {
+    requestAnimationFrame(initHeaderInteractions);
+    return;
+  }
 
-  // Warten, bis DOM die neuen Knoten kennt
+  try {
+    await Promise.all(slots.map(async (slot) => {
+      const url = slot.getAttribute('data-include');
+      const res = await fetch(url, { cache: 'no-cache' });
+      const html = await res.text();
+      slot.outerHTML = html; // ersetzt Platzhalter
+    }));
+  } catch (err) {
+    console.warn("Include konnte nicht geladen werden:", err);
+  }
+
+  // Nach dem Einfügen der Includes Interaktionen initialisieren
   requestAnimationFrame(initHeaderInteractions);
 
   function initHeaderInteractions() {
@@ -16,9 +26,10 @@
     const nav = document.getElementById('primaryNav');
     const toggle = document.getElementById('navToggle');
 
+    // Wenn kein Header existiert (z. B. Shopseite), beende Funktion still
     if (!header || !nav || !toggle) return;
 
-    // Burger Toggle
+    // Burger-Menü
     toggle.addEventListener('click', () => {
       const collapsed = nav.getAttribute('data-collapsed') === 'true';
       nav.setAttribute('data-collapsed', String(!collapsed));
@@ -35,7 +46,7 @@
       });
     });
 
-    // Sticky Header (falls noch nicht per CSS gelöst)
+    // Sticky Header
     const onScroll = () => {
       if (window.scrollY > 8) header.classList.add('is-sticky');
       else header.classList.remove('is-sticky');

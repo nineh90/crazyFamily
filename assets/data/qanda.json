@@ -1,0 +1,125 @@
+[
+  {
+    "question": "Wer wir sind – CRAZYFAMILY",
+    "answer": [
+      {
+        "type": "text",
+        "content": "Wir sind Alex und Kevin. Verschwägert. Eingespielt. Laut."
+      },
+      {
+        "type": "text",
+        "content": "Was uns verbindet? Familie, Gaming – und die Fähigkeit, aus jeder eigentlich normalen Situation komplettes Chaos zu machen."
+      }
+    ]
+  },
+  {
+    "question": "Wie das Ganze eskaliert ist?",
+    "answer": [
+      {
+        "type": "text",
+        "content": "Eigentlich wollten wir nur entspannt zocken. Eigentlich."
+      },
+      {
+        "type": "list",
+        "items": [
+          "absurde Fails",
+          "spontane Challenges",
+          "Situationen, in denen man sich fragt: Warum machen die das eigentlich?"
+        ]
+      },
+      {
+        "type": "text",
+        "content": "Antwort: Weil es lustig ist!"
+      },
+      {
+        "type": "text",
+        "content": "Irgendwann dachten wir: Wenn wir sowieso eskalieren, dann doch bitte live – und mit Leuten, die genauso lachen können wie wir."
+      },
+      {
+        "type": "text",
+        "content": "So wurde CRAZYFAMILY geboren."
+      }
+    ]
+  },
+  {
+    "question": "Warum Family wirklich passt?",
+    "answer": [
+      {
+        "type": "text",
+        "content": "Wir sind nicht nur ein Duo – wir sind Familie (Schwager). Und genau so läuft es auch im Stream:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Man lacht sich gegenseitig aus",
+          "Man hilft sich",
+          "Und am Ende gehört jeder im Chat dazu"
+        ]
+      },
+      {
+        "type": "text",
+        "content": "Bei uns bist du kein Zuschauer, du bist Teil der CRAZYFAMILY!"
+      }
+    ]
+  },
+  {
+    "question": "Unsere Philosophie:",
+    "answer": [
+      {
+        "type": "text",
+        "content": "Wir machen kein:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "TikTok Matches",
+          "künstliche Dramen",
+          "Jetzt schenken oder wir sind traurig Streams"
+        ]
+      },
+      {
+        "type": "text",
+        "content": "Wir machen:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Gaming ohne Druck",
+          "Interaktion auf Augenhöhe",
+          "Spaß, Chaos und echte Reaktionen"
+        ]
+      },
+      {
+        "type": "text",
+        "content": "Der Geldbeutel ist egal. Der Vibe nicht."
+      }
+    ]
+  },
+  {
+    "question": "Was dich bei uns erwartet?",
+    "answer": [
+      {
+        "type": "list",
+        "items": [
+          "Gaming mit mehr Chaos als Skill",
+          "Interaktive Aktionen, die manchmal aus dem Ruder laufen",
+          "Ehrliche Reaktionen, auch wenn es peinlich wird",
+          "Eine Community, die sich gegenseitig feiert"
+        ]
+      }
+    ]
+  },
+  {
+    "question": "Unser Motto?",
+    "answer": [
+      {
+        "type": "text",
+        "content": "Echt. Interaktiv. CRAZYFAMILY."
+      },
+      {
+        "type": "text",
+        "content": "Gaming ohne Druck – aber mit maximalem Spaß."
+      }
+    ]
+  }
+]

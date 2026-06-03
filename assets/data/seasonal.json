@@ -1,0 +1,122 @@
+[
+  {
+    "start": "11-30",
+    "end": "11-30",
+    "message": "🕯️ Die CRAZYFAMILY zündet die 1. Adventskerze an!",
+    "effect": "candle1",
+    "priority": 4,
+    "placement": "overlay"
+  },
+  {
+    "start": "12-07",
+    "end": "12-07",
+    "message": "🕯️🕯️ 2. Advent – die CRAZYFAMILY macht es euch gemütlich!",
+    "effect": "candle2",
+    "priority": 4,
+    "placement": "overlay"
+  },
+  {
+    "start": "12-14",
+    "end": "12-14",
+    "message": "🕯️🕯️🕯️ 3. Advent – die CRAZYFAMILY wünscht entspannte Tage!",
+    "effect": "candle3",
+    "priority": 4,
+    "placement": "overlay"
+  },
+  {
+    "start": "12-21",
+    "end": "12-21",
+    "message": "🕯️🕯️🕯️🕯️ 4. Advent – die CRAZYFAMILY wünscht Wärme & Liebe!",
+    "effect": "candle4",
+    "priority": 4,
+    "placement": "overlay"
+  },
+  { 
+    "start": "12-06", 
+    "end": "12-06", 
+    "message": "🎅 Nikolaus – die CRAZYFAMILY fragt: Habt ihr die Stiefel geputzt?", 
+    "effect": "snow", 
+    "priority": 4, 
+    "placement": "underHeader" 
+  },
+  { 
+    "start": "12-24", 
+    "end": "12-26", 
+    "message": "🎄 Frohe Weihnachten wünscht die CRAZYFAMILY!", 
+    "effect": "snow", 
+    "priority": 4, 
+    "placement": "underHeader" 
+  },
+  { 
+    "start": "12-28", 
+    "end": "12-31", 
+    "message": "🎉 Guten Rutsch – die CRAZYFAMILY sagt DANKE für ein verrücktes Jahr!", 
+    "effect": "confetti", 
+    "priority": 4, 
+    "placement": "underHeader" 
+  },
+  { 
+    "start": "01-01", 
+    "end": "01-07", 
+    "message": "✨ Frohes neues Jahr – auf viele CRAZY Momente 2026!", 
+    "effect": "confetti", 
+    "priority": 4, 
+    "placement": "underHeader" 
+  },
+  { 
+    "start": "10-23", 
+    "end": "10-31", 
+    "message": "🎃 Happy Halloween – spooky Grüße von der CRAZYFAMILY!", 
+    "effect": "pumpkin", 
+    "priority": 3, 
+    "placement": "overlay" 
+  },
+  { 
+    "start": "04-01", 
+    "end": "04-05", 
+    "message": "🐣 Frohe Ostern – wünscht deine CRAZYFAMILY!", 
+    "effect": "eggs", 
+    "priority": 3, 
+    "placement": "overlay" 
+  },
+  { 
+    "start": "02-10", 
+    "end": "02-14", 
+    "message": "💖 Happy Valentine’s Day – die CRAZYFAMILY schickt Liebe!", 
+    "effect": "hearts", 
+    "priority": 3, 
+    "placement": "overlay" 
+  },
+  { 
+    "start": "12-01", 
+    "end": "02-28", 
+    "message": "❄️ Winterzeit mit der CRAZYFAMILY!", 
+    "effect": "snow", 
+    "priority": 2, 
+    "placement": "underHeader" 
+  },
+  { 
+    "start": "03-01", 
+    "end": "05-31", 
+    "message": "🌸 Frühlingsgefühle mit der CRAZYFAMILY!", 
+    "effect": "flowers", 
+    "priority": 1, 
+    "placement": "overlay" 
+  },
+  { 
+    "start": "06-01", 
+    "end": "08-31", 
+    "message": "☀️ Sommer, Sonne & CRAZYFAMILY Vibes!", 
+    "effect": "sunglow", 
+    "priority": 1, 
+    "placement": "overlay" 
+  },
+  { 
+    "start": "09-01", 
+    "end": "11-30", 
+    "message": "🍂 Herbstzeit mit der CRAZYFAMILY!", 
+    "effect": "leaves", 
+    "priority": 1, 
+    "placement": "overlay" 
+  }
+]

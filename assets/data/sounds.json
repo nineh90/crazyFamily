@@ -1,0 +1,52 @@
+[
+  {
+    "titel": "CRAZYFAMILY - Wir dreh'n auf!",
+    "beschreibung": "Das legendäre CRAZYFAMILY Intro mit Gaming-Beat!",
+    "source": "/assets/sounds/crazy_live_intro.mp3"
+  },
+  {
+    "titel": "CRAZYFAMILY - You're my Chat, you're my Goal",
+    "beschreibung": "You're my Chat, you're my Goal - der CRAZYFAMILY Song!",
+    "source": "/assets/sounds/crazy_intro.mp3"
+  },
+  {
+    "titel": "CRAZYFAMILY - Wir sind Laut!",
+    "beschreibung": "Wir sind die CrazyFamily - wir sind laut!",
+    "source": "/assets/sounds/crazy_wir_sind_laut.mp3"
+  },
+  {
+    "titel": "CRAZYFAMILY - Sonne",
+    "beschreibung": "Sonne, Spaß und gute Laune mit der CRAZYFAMILY!",
+    "source": "/assets/sounds/crazy_sonne.mp3"
+  },
+  {
+    "titel": "CRAZYFAMILY - Verrückter Shop",
+    "beschreibung": "Augenzwinkern und Chaos-Garantie. Willkommen im verrückten CRAZYFAMILY Shop!",
+    "source": "/assets/sounds/crazy_shop_1.mp3"
+  },
+  {
+    "titel": "CRAZYFAMILY - Shop",
+    "beschreibung": "Der CRAZYFAMILY Shop",
+    "source": "/assets/sounds/crazy_shop.mp3"
+  },
+  {
+    "titel": "CRAZYFAMILY - Moderatoren",
+    "beschreibung": "Ein Track für unsere Moderatoren",
+    "source": "/assets/sounds/crazy_mods.mp3"
+  },
+  {
+    "titel": "CRAZYFAMILY - Laut",
+    "beschreibung": "Laut, lauter, CRAZYFAMILY!",
+    "source": "/assets/sounds/crazy_laut.mp3"
+  },
+  {
+    "titel": "CRAZYFAMILY - Du bist der Grund",
+    "beschreibung": "Du bist der Grund, warum wir streamen!",
+    "source": "/assets/sounds/crazy_du_bist_der_grund.mp3"
+  },
+  {
+    "titel": "CRAZYFAMILY - Ausnahmezustand",
+    "beschreibung": "Hier herrscht Ausnahmezustand! Mach dich bereit für Action!",
+    "source": "/assets/sounds/crazy_ausnahmezustand.mp3"
+  }
+]
