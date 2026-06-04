@@ -6,9 +6,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     const res = await fetch("/assets/data/shop-highlights.json", { cache: "no-cache" });
     const items = await res.json();
 
-    const active = items
-      .filter(i => i.isActive)
-      .sort((a, b) => b.priority - a.priority);
+    const allActive = items.filter(i => i.isActive);
+    for (let i = allActive.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [allActive[i], allActive[j]] = [allActive[j], allActive[i]];
+    }
+    const active = allActive.slice(0, 3);
 
     container.innerHTML = active.map((item, idx) => {
   const hasMultiple = item.images.length > 1;

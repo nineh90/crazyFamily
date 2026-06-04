@@ -166,6 +166,47 @@
 
 ---
 
+---
+
+## PHASE 5 – Crash Bandicoot Easter Eggs 🟠
+> **Idee:** Interaktive Spielereien im Crash-Bandicoot-Stil, eigener Stil (kein Copyright)
+> **Status:** [~] In Arbeit
+
+### 5.1 Kisten-System (Easter Eggs) ← FERTIG
+- [x] `assets/js/crates.js` erstellt – eigenständiges Modul, IIFE
+- [x] **3 Kistentypen** (CSS-only, kein Copyright):
+  - [x] Normale Kiste `!` – braunes Holzdesign via CSS-Gradienten (60% Chance)
+  - [x] Frage-Kiste `?` – lila/cyan Neon, zeigt zufälligen CrazyFamily-Quote (30%)
+  - [x] TNT-Kiste – dunkelrot, pulsierend, löst Screen-Shake aus (10%)
+- [x] 2–3 zufällige Kisten pro Seitenaufruf an Randpositionen (fixed)
+- [x] Click/Enter/Space → Smash-Animation (scale + rotate + fade)
+- [x] Partikelexplosion je nach Kistentyp (12–22 Partikel, typgerechte Farben)
+- [x] Web Audio API Sounds: Holzknacken / Jingle / Tiefes Bumm (kein Copyright)
+- [x] Screen-Shake bei TNT (`body.cf-shake` + `@keyframes cf-shake-kf`)
+- [x] Quote-Popup bei `?`-Kiste (CrazyFamily-Insider-Quotes, Neon-Cyan-Style)
+- [x] `🪵 X` Wumpa-Counter (fixed bottom-right, persistent via `localStorage`)
+- [x] **Crash-Runner** nach jeder 5. Kiste: oranges Blob-Männchen mit Laufbeinen + `!` über dem Kopf läuft über den Bildschirm
+- [x] In alle 6 Seiten eingebunden (`index.php`, alle `pages/*.php`)
+- [x] CSS in `style.css` ergänzt (Kisten, Partikel, Shake, Popup, Counter, Runner)
+- [x] `prefers-reduced-motion` respektiert
+
+### 5.2 Mögliche Erweiterungen (noch offen)
+- [ ] **Wumpa-Früchte** – kleine Äpfel die vom oberen Rand fallen, anklicken zum Sammeln (separater Counter, anderer Typ als Kisten)
+- [ ] **Geheimcode / Konami-Code** – bestimmte Tastenfolge triggert einen Spezialeffekt (z.B. alle Kisten spawnen gleichzeitig + Konfetti-Explosion)
+- [ ] **Selteneres Spawn-System** – bestimmte Kisten spawnen nur zu bestimmten Uhrzeiten oder Wochentagen (z.B. TNT nur freitags = Stream-Tag)
+- [ ] **Kisten-Highscore-Anzeige** – kleines Overlay das nach X Kisten erscheint ("WUMPA MASTER 🏆")
+- [ ] **Aku-Aku-Effekt** – nach 10 Kisten kurze Neon-Maske die über den Screen fliegt
+- [ ] **Idle-Trigger** – nach 30 Sek. Inaktivität wackelt eine Kiste stärker um Aufmerksamkeit zu erregen
+
+### 5.3 Mini-Games (Zukunft, nach 5.2)
+> Erst angehen wenn 5.2 abgeschlossen – braucht eigene Seite `pages/games.php`
+- [ ] Konzept abstimmen (welche Spiele? Kisten-Smash-Runner? Wumpa-Catcher?)
+- [ ] `pages/games.php` anlegen
+- [ ] Navigation-Link "Games" in `header.php` ergänzen
+- [ ] Erstes Mini-Game implementieren (Vorschlag: Wumpa-Früchte fangen)
+
+---
+
 ## Fortschritts-Übersicht
 
 | Phase | Fortschritt | Status |
@@ -174,4 +215,5 @@
 | Phase 2 – PHP-Migration | 20 / 20 Tasks | ✅ Abgeschlossen |
 | Phase 3 – SEO | 14 / 14 Tasks | ✅ Abgeschlossen |
 | Phase 4 – Features | 9 / 11 Tasks | 🟩 Nahezu fertig (Discord-Webhook offen) |
+| Phase 5 – Easter Eggs | 17 / 23 Tasks | 🟧 Kisten-System fertig, Erweiterungen offen |
 | Technische Schulden | 6 / 6 Tasks | ✅ Abgeschlossen |

@@ -67,5 +67,6 @@
 
   <script src="../js/main.js" defer></script>
   <script src="/assets/js/seasonal.js" defer></script>
+  <script src="/assets/js/crates.js" defer></script>
 </body>
 </html>

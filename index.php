@@ -310,6 +310,7 @@
   <script src="/assets/js/seasonal.js" defer></script>
   <script src="/assets/js/qanda.js" defer></script>
   <script src="/assets/js/particles.js" defer></script>
+  <script src="/assets/js/crates.js" defer></script>
 
 </body>
 </html>
