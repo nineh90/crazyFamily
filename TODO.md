@@ -190,13 +190,13 @@
 - [x] CSS in `style.css` ergänzt (Kisten, Partikel, Shake, Popup, Counter, Runner)
 - [x] `prefers-reduced-motion` respektiert
 
-### 5.2 Mögliche Erweiterungen (noch offen)
-- [ ] **Wumpa-Früchte** – kleine Äpfel die vom oberen Rand fallen, anklicken zum Sammeln (separater Counter, anderer Typ als Kisten)
-- [ ] **Geheimcode / Konami-Code** – bestimmte Tastenfolge triggert einen Spezialeffekt (z.B. alle Kisten spawnen gleichzeitig + Konfetti-Explosion)
-- [ ] **Selteneres Spawn-System** – bestimmte Kisten spawnen nur zu bestimmten Uhrzeiten oder Wochentagen (z.B. TNT nur freitags = Stream-Tag)
-- [ ] **Kisten-Highscore-Anzeige** – kleines Overlay das nach X Kisten erscheint ("WUMPA MASTER 🏆")
-- [ ] **Aku-Aku-Effekt** – nach 10 Kisten kurze Neon-Maske die über den Screen fliegt
-- [ ] **Idle-Trigger** – nach 30 Sek. Inaktivität wackelt eine Kiste stärker um Aufmerksamkeit zu erregen
+### 5.2 Erweiterungen ← FERTIG (Briefing 2026-06-04)
+- [x] **Sammel-Früchte** – 🍎 fallen vom oberen Rand, anklicken/Enter zum Sammeln; eigener Counter (`cf_fruit` in localStorage), eigener Pop + Blip-Sound. Max. 2 gleichzeitig, Spawn alle ~11–20 s. *(markenrechtlich generisch gehalten: kein „Wumpa"-Wording im sichtbaren UI)*
+- [x] **Konami-Code** – tippe **`crazyfamily`** → alle Kisten spawnen gleichzeitig + Konfetti-Regen + „CRAZY!"-Overlay
+- [x] **Tag-basiertes Spawn-System** – an Stream-Tagen (Mo/Mi/Fr) spawnen TNT-Kisten 3× häufiger (`isStreamDay()` in `crates.js`)
+- [x] **Highscore / Master-Badge** – bei Meilensteinen (10/25/50/100/250/500 Kisten) erscheint kurz ein „MASTER · X"-Overlay (einmalig pro Stufe, `cf_master` in localStorage)
+- [x] **Idle-Trigger** – nach 30 s Inaktivität wackelt eine zufällige Kiste auffällig (`cf-crate--attention`); Reset bei Maus/Tastatur/Scroll/Touch
+- [ ] **Eigene Schutzmaske (Fly-by)** – generische Stammesmaske statt „Aku-Aku" (markenrechtlich neu gedacht); noch offen, optionales Extra
 
 ### 5.3 Mini-Games (Zukunft, nach 5.2)
 > Erst angehen wenn 5.2 abgeschlossen – braucht eigene Seite `pages/games.php`
@@ -215,5 +215,5 @@
 | Phase 2 – PHP-Migration | 20 / 20 Tasks | ✅ Abgeschlossen |
 | Phase 3 – SEO | 14 / 14 Tasks | ✅ Abgeschlossen |
 | Phase 4 – Features | 9 / 11 Tasks | 🟩 Nahezu fertig (Discord-Webhook offen) |
-| Phase 5 – Easter Eggs | 17 / 23 Tasks | 🟧 Kisten-System fertig, Erweiterungen offen |
+| Phase 5 – Easter Eggs | 22 / 23 Tasks | 🟩 Kisten + Erweiterungen fertig (nur optionale Maske offen) |
 | Technische Schulden | 6 / 6 Tasks | ✅ Abgeschlossen |

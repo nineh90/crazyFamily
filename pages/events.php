@@ -83,6 +83,7 @@
   <script src="../js/main.js" defer></script>
   <script src="/assets/js/calendar.js" defer></script>
   <script src="/assets/js/seasonal.js" defer></script>
+  <script src="/assets/js/crates.js" defer></script>
   <script>
   // Upcoming events list
   (async function() {

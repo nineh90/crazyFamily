@@ -1,6 +1,8 @@
 (function () {
   'use strict';
 
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   // ── Config ───────────────────────────────────────────────
   const CRATE_COUNT = () => 2 + Math.floor(Math.random() * 2); // 2 or 3 per page
 
@@ -32,13 +34,23 @@
     'Ich hasse Wasserlevel.',
   ];
 
-  let score = parseInt(localStorage.getItem('cf_crates') || '0');
+  // Master-Belohnungs-Schwellen (gesammelte Kisten)
+  const MILESTONES = [10, 25, 50, 100, 250, 500];
+
+  let score      = parseInt(localStorage.getItem('cf_crates') || '0');
+  let fruitScore = parseInt(localStorage.getItem('cf_fruit')  || '0');
+  let masterSeen = parseInt(localStorage.getItem('cf_master') || '0');
 
   // ── Helpers ──────────────────────────────────────────────
+  // Stream-Tage = Mo/Mi/Fr → TNT-Kisten spawnen dann häufiger
+  function isStreamDay() { const d = new Date().getDay(); return d === 1 || d === 3 || d === 5; }
+
   function pickType() {
-    const total = TYPES.reduce((s, t) => s + t.weight, 0);
+    const streamDay = isStreamDay();
+    const weighted = TYPES.map(t => ({ ...t, weight: t.id === 'tnt' && streamDay ? 3 : t.weight }));
+    const total = weighted.reduce((s, t) => s + t.weight, 0);
     let r = Math.random() * total;
-    for (const t of TYPES) { r -= t.weight; if (r <= 0) return t; }
+    for (const t of weighted) { r -= t.weight; if (r <= 0) return t; }
     return TYPES[0];
   }
 
@@ -92,6 +104,18 @@
           osc.start(t0); osc.stop(t0 + 0.38);
         });
 
+      } else if (type === 'fruit') {
+        // Kurzer, heller Sammel-Blip
+        const osc = ctx.createOscillator();
+        const g   = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(900, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(1550, ctx.currentTime + 0.12);
+        g.gain.setValueAtTime(0.25, ctx.currentTime);
+        g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.22);
+        osc.connect(g); g.connect(ctx.destination);
+        osc.start(); osc.stop(ctx.currentTime + 0.22);
+
       } else {
         // Wood crack: noise burst
         const buf = ctx.createBuffer(1, ctx.sampleRate * 0.18, ctx.sampleRate);
@@ -108,18 +132,15 @@
   }
 
   // ── Particle burst ───────────────────────────────────────
-  function burst(el, type) {
-    const r  = el.getBoundingClientRect();
-    const cx = r.left + r.width / 2;
-    const cy = r.top  + r.height / 2;
-
+  function burstAt(cx, cy, type) {
     const palette = {
       normal:   ['#C8740A', '#FF7300', '#B6FF00', '#FF3EA5'],
       question: ['#00F5FF', '#B600FF', '#B6FF00', '#EDEDED'],
       tnt:      ['#FF0033', '#FF7300', '#FFD700', '#FF3EA5'],
-    }[type];
+      fruit:    ['#FF0033', '#FF7300', '#FFD700', '#B6FF00'],
+    }[type] || ['#FF7300'];
 
-    const count = type === 'tnt' ? 22 : 12;
+    const count = type === 'tnt' ? 22 : (type === 'fruit' ? 14 : 12);
     const dist  = type === 'tnt' ? 140 : 85;
 
     for (let i = 0; i < count; i++) {
@@ -134,6 +155,11 @@
       document.body.appendChild(p);
       p.addEventListener('animationend', () => p.remove(), { once: true });
     }
+  }
+
+  function burst(el, type) {
+    const r = el.getBoundingClientRect();
+    burstAt(r.left + r.width / 2, r.top + r.height / 2, type);
   }
 
   // ── Screen shake (TNT) ───────────────────────────────────
@@ -156,7 +182,7 @@
     }, 2700);
   }
 
-  // ── Wumpa score counter ──────────────────────────────────
+  // ── Crate score counter ──────────────────────────────────
   function updateScore() {
     let el = document.getElementById('cf-score');
     if (!el) {
@@ -171,12 +197,67 @@
     el.classList.add('cf-score--bump');
   }
 
+  // ── Fruit score counter ──────────────────────────────────
+  function updateFruitScore() {
+    let el = document.getElementById('cf-fruit-score');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'cf-fruit-score';
+      el.className = 'cf-fruit-score';
+      document.body.appendChild(el);
+    }
+    el.textContent = `🍎 ${fruitScore}`;
+    el.classList.remove('cf-fruit-score--bump');
+    void el.offsetWidth;
+    el.classList.add('cf-fruit-score--bump');
+  }
+
+  // ── Master badge overlay ─────────────────────────────────
+  function showMaster(text) {
+    let el = document.querySelector('.cf-master');
+    if (!el) {
+      el = document.createElement('div');
+      el.className = 'cf-master';
+      el.innerHTML = '<div class="cf-master__inner"></div>';
+      document.body.appendChild(el);
+    }
+    el.querySelector('.cf-master__inner').textContent = text;
+    requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('on')));
+    clearTimeout(el._t);
+    el._t = setTimeout(() => el.classList.remove('on'), 1800);
+  }
+
+  function checkMaster() {
+    const hit = MILESTONES.filter(m => m <= score && m > masterSeen).pop();
+    if (hit) {
+      masterSeen = hit;
+      localStorage.setItem('cf_master', hit);
+      showMaster('MASTER · ' + hit);
+    }
+  }
+
+  // ── Confetti rain (Konami) ───────────────────────────────
+  function confettiRain() {
+    if (reduce) return;
+    const colors = ['#FF7300', '#FF3EA5', '#00F5FF', '#B600FF', '#B6FF00', '#FFD700'];
+    for (let i = 0; i < 90; i++) {
+      const c = document.createElement('div');
+      c.className = 'cf-confetti';
+      c.style.cssText =
+        `left:${Math.random() * 100}vw;` +
+        `background:${colors[i % colors.length]};` +
+        `animation-duration:${2.4 + Math.random() * 2.2}s;` +
+        `animation-delay:${Math.random() * 0.6}s`;
+      document.body.appendChild(c);
+      c.addEventListener('animationend', () => c.remove(), { once: true });
+    }
+  }
+
   // ── Crash runner (every 5th crate) ──────────────────────
   function triggerRunner() {
     if (document.querySelector('.cf-runner')) return;
     const runner = document.createElement('div');
     runner.className = 'cf-runner';
-    // legs via two inner spans (animated running)
     runner.innerHTML = '<span class="cf-leg cf-leg--l"></span><span class="cf-leg cf-leg--r"></span>';
     document.body.appendChild(runner);
     runner.addEventListener('animationend', (e) => {
@@ -198,6 +279,7 @@
     score++;
     localStorage.setItem('cf_crates', score);
     updateScore();
+    checkMaster();
 
     el.classList.add('cf-crate--smash');
     el.addEventListener('animationend', () => el.remove(), { once: true });
@@ -229,10 +311,107 @@
     document.body.appendChild(el);
   }
 
+  // ── Collectible falling fruit ────────────────────────────
+  function spawnFruit() {
+    if (reduce) return;
+    if (document.querySelectorAll('.cf-fruit').length >= 2) return;
+
+    const f = document.createElement('div');
+    f.className = 'cf-fruit';
+    f.textContent = '🍎';
+    f.setAttribute('role', 'button');
+    f.setAttribute('tabindex', '0');
+    f.setAttribute('aria-label', 'Frucht fangen!');
+    f.style.left = (6 + Math.random() * 84) + 'vw';
+    f.style.animationDuration = (6 + Math.random() * 4) + 's';
+
+    const grab = () => catchFruit(f);
+    f.addEventListener('click', grab);
+    f.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); grab(); }
+    });
+    // Vom Boden verpasst → still entfernen
+    f.addEventListener('animationend', () => { if (!f.dataset.caught) f.remove(); }, { once: true });
+
+    document.body.appendChild(f);
+  }
+
+  function catchFruit(f) {
+    if (f.dataset.caught) return;
+    f.dataset.caught = '1';
+
+    // Frucht an aktueller Position einfrieren, dann zerplatzen
+    const r = f.getBoundingClientRect();
+    f.style.animation = 'none';
+    f.style.top = r.top + 'px';
+    f.style.left = r.left + 'px';
+    f.style.transform = 'none';
+    void f.offsetWidth;
+    f.classList.add('cf-fruit--pop');
+
+    burstAt(r.left + r.width / 2, r.top + r.height / 2, 'fruit');
+    playSound('fruit');
+
+    fruitScore++;
+    localStorage.setItem('cf_fruit', fruitScore);
+    updateFruitScore();
+
+    f.addEventListener('animationend', () => f.remove(), { once: true });
+  }
+
+  function fruitLoop() {
+    spawnFruit();
+    setTimeout(fruitLoop, 11000 + Math.random() * 9000);
+  }
+
+  // ── Idle wiggle (30s ohne Aktivität) ─────────────────────
+  let idleTimer;
+  function wiggleCrate() {
+    const crates = [...document.querySelectorAll('.cf-crate')].filter(c => !c.dataset.gone);
+    if (crates.length) {
+      const c = crates[Math.floor(Math.random() * crates.length)];
+      c.classList.remove('cf-crate--attention');
+      void c.offsetWidth;
+      c.classList.add('cf-crate--attention');
+      c.addEventListener('animationend',
+        () => c.classList.remove('cf-crate--attention'), { once: true });
+    }
+    resetIdle();
+  }
+  function resetIdle() {
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(wiggleCrate, 30000);
+  }
+
+  // ── Konami: tippe "crazyfamily" ─────────────────────────
+  let buf = '';
+  function onKey(e) {
+    if (e.key && e.key.length === 1) {
+      buf = (buf + e.key.toLowerCase()).slice(-16);
+      if (buf.endsWith('crazyfamily')) { buf = ''; party(); }
+    }
+  }
+  function party() {
+    POSITIONS.forEach(makeCrate);   // alle Kisten gleichzeitig
+    confettiRain();
+    showMaster('CRAZY!');
+    playSound('question');
+  }
+
   // ── Boot ─────────────────────────────────────────────────
   function init() {
     if (score > 0) updateScore();
+    if (fruitScore > 0) updateFruitScore();
     shuffle([...POSITIONS]).slice(0, CRATE_COUNT()).forEach(makeCrate);
+
+    window.addEventListener('keydown', onKey);
+
+    if (!reduce) {
+      setTimeout(fruitLoop, 5000 + Math.random() * 4000);
+      ['mousemove', 'keydown', 'click', 'scroll', 'touchstart'].forEach(ev =>
+        window.addEventListener(ev, resetIdle, { passive: true }));
+      resetIdle();
+    }
   }
 
   document.readyState === 'loading'
