@@ -198,12 +198,35 @@
 - [x] **Idle-Trigger** – nach 30 s Inaktivität wackelt eine zufällige Kiste auffällig (`cf-crate--attention`); Reset bei Maus/Tastatur/Scroll/Touch
 - [ ] **Eigene Schutzmaske (Fly-by)** – generische Stammesmaske statt „Aku-Aku" (markenrechtlich neu gedacht); noch offen, optionales Extra
 
-### 5.3 Mini-Games (Zukunft, nach 5.2)
-> Erst angehen wenn 5.2 abgeschlossen – braucht eigene Seite `pages/games.php`
-- [ ] Konzept abstimmen (welche Spiele? Kisten-Smash-Runner? Wumpa-Catcher?)
-- [ ] `pages/games.php` anlegen
-- [ ] Navigation-Link "Games" in `header.php` ergänzen
-- [ ] Erstes Mini-Game implementieren (Vorschlag: Wumpa-Früchte fangen)
+### 5.2b Feinjustierung Kisten (Briefing 2026-06-04) ← FERTIG
+- [x] **Weniger Kisten, völlig wahllos** – kein Batch beim Seitenaufruf mehr; nur noch **Spruch-Kisten** (`?`) spawnen zeitgesteuert, **~1–2 pro Minute** (Intervall 30–60 s), max. 2 gleichzeitig; ungeklickte Kisten verschwinden nach 22 s leise
+- [x] **Gelegentlicher Apfel** bleibt unverändert erhalten
+- [x] **Pause-Button** – stoppt Kisten + Früchte, entfernt aktive Elemente, blendet die Counter aus (Play-Button bleibt sichtbar); Status persistent (`cf_paused` in localStorage)
+- [x] **Reset-Button** – löscht Kisten-, Frucht- & Master-Score (`🗑`); kleines Steuer-Panel unten rechts über den Countern
+
+### 5.3 Mini-Games-Bereich ← VOM KUNDEN GEWÜNSCHT (2026-06-04)
+> **Status:** [ ] Geplant – **Konzept & Machbarkeit erst mit Nils/Kunde abstimmen**, dann umsetzen.
+> Eigener Bereich/Seite `pages/games.php` mit kleinen, browserbasierten Mini-Games (reines JS, kein Build-Tool).
+>
+> **Zu klären im nächsten Gespräch:**
+> - Welche Spiele genau? (Reihenfolge / Priorität)
+> - Mobile-tauglich (Touch-Steuerung) Pflicht?
+> - Highscores nur lokal (localStorage) oder serverseitig (PHP + Datei/DB)?
+> - Sollen die Spiele in den bestehenden Easter-Egg-/Crash-Stil passen?
+>
+> **Ideen-Pool (eigenständig, kein Marken-Asset):**
+> - 🍎 **Frucht-Fänger** – fallende Früchte mit einer Korb-/Kiste am unteren Rand fangen (baut auf bestehendem Frucht-System auf)
+> - 📦 **Kisten-Smash** – Reaktionsspiel: Kisten erscheinen, möglichst schnell anklicken, TNT vermeiden
+> - 🏃 **Endless-Runner** – das Crash-Runner-Männchen läuft, über Hindernisse springen/Kisten zerschlagen
+> - 🧠 **Memory** – Kisten-Paare aufdecken (CrazyFamily-Motive)
+>
+> **Tasks (nach Abstimmung):**
+- [ ] Konzept + Spielauswahl mit Kunde final abstimmen
+- [ ] `pages/games.php` anlegen (Layout im Crash-Stil)
+- [ ] Navigation-Link "Games" in `header.php` + Footer ergänzen
+- [ ] `sitemap_index.xml` um `games.php` erweitern
+- [ ] Erstes Mini-Game implementieren (Vorschlag: Frucht-Fänger)
+- [ ] Highscore-Anzeige (localStorage)
 
 ---
 

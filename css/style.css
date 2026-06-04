@@ -359,7 +359,7 @@ body.scrolled .header {
   align-items: center;
 }
 .hero__logo {
-  width: min(460px, 88vw);
+  width: min(460px, 84vw);
   aspect-ratio: 4/3;
   object-fit: contain;
 }
@@ -524,7 +524,8 @@ body.scrolled .header {
   color: #fff;
   font-weight: 700;
   font-size: clamp(12px, 3vw, 15px);
-  white-space: nowrap;
+  white-space: normal;
+  max-width: 92vw;
   box-shadow: 0 4px 16px rgba(0,0,0,.25);
   text-align: center;
 }
@@ -2159,31 +2160,38 @@ main#main.section > .container > h1 {
 }
 body.cf-shake { animation: cf-shake-kf .48s ease-out; }
 
-/* "?" quote popup */
+/* "?" quote popup – zentriert auf dem Screen, bouncig */
 .cf-quote-pop {
   position: fixed;
-  bottom: 88px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%) translateY(18px);
-  max-width: min(380px, 88vw);
+  transform: translate(-50%, -50%) scale(.4) rotate(-7deg);
+  width: min(440px, 90vw);
+  max-width: 90vw;
   background: rgba(17,22,38,.97);
-  border: 2px solid var(--cyan);
-  border-radius: 14px;
-  padding: 12px 22px;
+  border: 3px solid var(--cyan);
+  border-radius: 18px;
+  padding: 20px 26px;
   font-family: 'Audiowide', sans-serif;
-  font-size: .88rem;
+  font-size: clamp(1rem, 4.5vw, 1.5rem);
+  line-height: 1.25;
   color: var(--cyan);
-  text-shadow: 0 0 10px rgba(0,245,255,.65);
-  box-shadow: 0 0 26px rgba(0,245,255,.28);
-  z-index: 9990;
+  text-shadow: 0 0 14px rgba(0,245,255,.7);
+  box-shadow: 0 0 40px rgba(0,245,255,.35), 6px 6px 0 rgba(0,0,0,.5);
+  z-index: 9991;
   opacity: 0;
-  transition: opacity .3s, transform .3s;
+  transition: opacity .25s ease, transform .45s cubic-bezier(.2, 1.7, .4, 1);
   pointer-events: none;
   text-align: center;
 }
 .cf-quote-pop--on {
   opacity: 1;
-  transform: translateX(-50%) translateY(0);
+  transform: translate(-50%, -50%) scale(1) rotate(-2deg);
+  animation: cf-quote-glow 1.6s ease-in-out infinite;
+}
+@keyframes cf-quote-glow {
+  0%, 100% { box-shadow: 0 0 34px rgba(0,245,255,.3),  6px 6px 0 rgba(0,0,0,.5); }
+  50%      { box-shadow: 0 0 60px rgba(0,245,255,.65), 6px 6px 0 rgba(0,0,0,.5); }
 }
 
 /* Wumpa score counter */
@@ -2297,11 +2305,55 @@ body {
   background-attachment: fixed;
 }
 
-/* Hero bekommt einen kräftigen Sunset-Glow von oben */
+/* Hero: Sunset-Glow oben + warmer Horizont-Glow hinter der Baumlinie */
 .hero {
+  padding-bottom: calc(clamp(40px, 6vw, 64px) + 100px);
   background:
-    radial-gradient(78vw 48vh at 50% -4%, rgba(255,115,0,.24), transparent 60%),
+    radial-gradient(78vw 48vh at 50% -4%,  rgba(255,115,0,.26), transparent 60%),
+    radial-gradient(125vw 32vh at 50% 100%, rgba(255,115,0,.24), transparent 62%),
     linear-gradient(180deg, rgba(182,0,255,.12), transparent 42%);
+}
+
+/* Dschungel-Baumlinie als Hero-Unterkante (ersetzt den alten Dreiecks-Übergang) */
+.hero::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 120px;
+  background: url('/assets/images/jungle-silhouette.svg') repeat-x left bottom;
+  background-size: auto 120px;
+  clip-path: none;
+  z-index: 2;
+  pointer-events: none;
+}
+@media (max-width: 720px) {
+  .hero::after { height: 104px; background-size: auto 104px; }
+  .hero { padding-bottom: calc(clamp(40px, 6vw, 64px) + 86px); }
+}
+
+/* Hero auf Desktop: volle Bildschirmhöhe (100vh) + großes, mittiges Bild */
+@media (min-width: 720px) {
+  .hero {
+    min-height: calc(100vh - var(--header-h));
+    display: flex;
+    align-items: center;
+    padding-top: clamp(28px, 4vw, 52px);
+    padding-bottom: 210px;                 /* Platz für die große Baumlinie */
+  }
+  .hero::after { height: 190px; background-size: auto 190px; }
+  .hero__inner { grid-template-columns: 1fr 1.4fr; gap: 2rem; }
+  .hero__visual {
+    justify-content: flex-start;           /* an die Mittel-Gutter ziehen */
+    transform: translate(-10px, 30px);     /* näher zur Mitte + etwas tiefer */
+  }
+  .hero__logo { width: min(760px, 60vw); }
+}
+@media (min-width: 1080px) {
+  .hero { padding-bottom: 232px; }
+  .hero::after { height: 212px; background-size: auto 212px; }
+  .hero__inner { grid-template-columns: 1fr 1.5fr; gap: 2.4rem; }
+  .hero__logo { width: min(820px, 58vw); }
+  .hero__visual { transform: translate(-16px, 34px); }
 }
 
 /* Section-Alt: warme Orange/Teal-Streifentextur statt Pink */
@@ -2315,19 +2367,25 @@ body {
     );
 }
 
-/* Footer: dekorative Holzkisten-Leiste über der Trennlinie */
+/* Footer: Dschungel-Baumlinie als Horizont über dem Footer (auf allen Seiten) */
+.footer {
+  padding-top: 0;
+  border-top: none;
+  box-shadow: none;
+  background:
+    radial-gradient(120vw 130px at 50% 0%, rgba(255,115,0,.13), transparent 72%),
+    linear-gradient(0deg, rgba(0,0,0,.35) 0%, transparent 100%);
+}
 .footer::before {
   content: '';
   display: block;
-  height: 16px;
+  height: 96px;
   margin-bottom: 1.6rem;
-  background:
-    repeating-linear-gradient(90deg,
-      var(--crate-wood) 0, var(--crate-wood) 28px,
-      #7a3d00 28px, #7a3d00 30px);
-  border-top: 3px solid #1a0800;
-  border-bottom: 3px solid #1a0800;
-  box-shadow: 0 0 18px rgba(255,115,0,.4);
+  background: url('/assets/images/jungle-silhouette.svg') repeat-x left bottom;
+  background-size: auto 96px;
+}
+@media (max-width: 720px) {
+  .footer::before { height: 72px; background-size: auto 72px; }
 }
 
 /* ===== Easter Egg: Fallende Sammel-Früchte ===== */
@@ -2371,6 +2429,43 @@ body {
   pointer-events: none;
 }
 .cf-fruit-score--bump { animation: cf-bump .28s ease-out; }
+
+/* ===== Easter Egg: Steuerung (Pause / Punkte löschen) ===== */
+.cf-controls {
+  position: fixed;
+  bottom: 96px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  z-index: 9981;
+}
+.cf-ctrl {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  background: rgba(17,22,38,.93);
+  border: 2px solid var(--purple);
+  border-radius: 50%;
+  color: var(--text);
+  font-size: .95rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(182,0,255,.35);
+  transition: transform .15s ease, box-shadow .2s ease, filter .15s ease;
+}
+.cf-ctrl:hover  { transform: translateY(-2px) scale(1.08); filter: brightness(1.2); box-shadow: 0 0 18px rgba(182,0,255,.6); }
+.cf-ctrl:active { transform: scale(.92); }
+.cf-ctrl--reset { border-color: var(--yt); box-shadow: 0 0 12px rgba(255,0,51,.35); }
+.cf-ctrl--reset:hover { box-shadow: 0 0 18px rgba(255,0,51,.6); }
+.cf-controls--paused .cf-ctrl--pause {
+  border-color: var(--lime);
+  color: var(--lime);
+  box-shadow: 0 0 14px rgba(182,255,0,.5);
+}
+/* Im Pausemodus nur den Play-Button zeigen */
+.cf-controls--paused .cf-ctrl--reset { display: none; }
 
 /* ===== Easter Egg: Konfetti (Konami) ===== */
 .cf-confetti {
@@ -2428,4 +2523,6 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .cf-fruit, .cf-confetti { display: none !important; }
   .cf-master__inner { transition: none; }
+  .cf-quote-pop { transition: opacity .2s ease; }
+  .cf-quote-pop--on { transform: translate(-50%, -50%); animation: none; }
 }

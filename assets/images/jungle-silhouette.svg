@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 150" width="720" height="150" preserveAspectRatio="xMidYMax meet">
+  <style>
+    .fronds {
+      transform-box: fill-box;
+      transform-origin: 50% 22%;
+      animation: cf-sway 4.4s ease-in-out infinite;
+    }
+    @keyframes cf-sway {
+      0%, 100% { transform: rotate(-3deg); }
+      50%      { transform: rotate(3deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .fronds { animation: none; }
+    }
+  </style>
+
+  <!-- Hintere Laubschicht (heller, Tiefe) -->
+  <path fill="#2c5d40" d="M0,150 L0,72 C45,52 95,86 145,70 C195,54 245,90 300,70 C360,48 415,88 470,70 C525,52 580,84 635,68 C670,56 700,78 720,72 L720,150 Z"/>
+
+  <!-- Hintere Palmen (heller) -->
+  <g transform="translate(75,94) scale(.78)" fill="#235038">
+    <path d="M-4,56 C-6,36 -2,18 0,0 C2,18 6,36 4,56 Z"/>
+    <g class="fronds" style="animation-duration:4.8s;animation-delay:-0.6s">
+      <path d="M0,2 Q32,-9 70,2 Q34,-2 0,8 Z" transform="rotate(-8)"/>
+      <path d="M0,2 Q32,-9 70,2 Q34,-2 0,8 Z" transform="rotate(30)"/>
+      <path d="M0,2 Q32,-9 70,2 Q34,-2 0,8 Z" transform="rotate(72)"/>
+      <path d="M0,2 Q-32,-9 -70,2 Q-34,-2 0,8 Z" transform="rotate(8)"/>
+      <path d="M0,2 Q-32,-9 -70,2 Q-34,-2 0,8 Z" transform="rotate(-30)"/>
+      <path d="M0,2 Q-32,-9 -70,2 Q-34,-2 0,8 Z" transform="rotate(-72)"/>
+    </g>
+  </g>
+  <g transform="translate(420,90) scale(.86)" fill="#235038">
+    <path d="M-4,58 C-6,38 -2,18 0,0 C2,18 6,38 4,58 Z"/>
+    <g class="fronds" style="animation-duration:5.2s;animation-delay:-2.4s">
+      <path d="M0,2 Q32,-9 70,2 Q34,-2 0,8 Z" transform="rotate(-8)"/>
+      <path d="M0,2 Q32,-9 70,2 Q34,-2 0,8 Z" transform="rotate(30)"/>
+      <path d="M0,2 Q32,-9 70,2 Q34,-2 0,8 Z" transform="rotate(72)"/>
+      <path d="M0,2 Q-32,-9 -70,2 Q-34,-2 0,8 Z" transform="rotate(8)"/>
+      <path d="M0,2 Q-32,-9 -70,2 Q-34,-2 0,8 Z" transform="rotate(-30)"/>
+      <path d="M0,2 Q-32,-9 -70,2 Q-34,-2 0,8 Z" transform="rotate(-72)"/>
+    </g>
+  </g>
+
+  <!-- Vordere Laubschicht (dunkler) -->
+  <path fill="#163d2b" d="M0,150 L0,100 C40,86 95,102 150,96 C205,90 250,106 305,98 C360,90 415,104 470,98 C525,92 580,104 635,98 C675,94 700,104 720,100 L720,150 Z"/>
+
+  <!-- Vordere Palmen (groß, dunkel) -->
+  <g transform="translate(245,84)" fill="#163d2b">
+    <path d="M-5,62 C-8,40 -3,18 0,0 C3,18 8,40 5,62 Z"/>
+    <g class="fronds" style="animation-duration:4.4s;animation-delay:-1.2s">
+      <path d="M0,2 Q36,-10 78,2 Q38,-3 0,9 Z" transform="rotate(-8)"/>
+      <path d="M0,2 Q36,-10 78,2 Q38,-3 0,9 Z" transform="rotate(30)"/>
+      <path d="M0,2 Q36,-10 78,2 Q38,-3 0,9 Z" transform="rotate(70)"/>
+      <path d="M0,2 Q-36,-10 -78,2 Q-38,-3 0,9 Z" transform="rotate(8)"/>
+      <path d="M0,2 Q-36,-10 -78,2 Q-38,-3 0,9 Z" transform="rotate(-30)"/>
+      <path d="M0,2 Q-36,-10 -78,2 Q-38,-3 0,9 Z" transform="rotate(-70)"/>
+    </g>
+  </g>
+  <g transform="translate(600,80) scale(1.04)" fill="#163d2b">
+    <path d="M-5,64 C-8,42 -3,20 0,0 C3,20 8,42 5,64 Z"/>
+    <g class="fronds" style="animation-duration:5s;animation-delay:-3.1s">
+      <path d="M0,2 Q36,-10 78,2 Q38,-3 0,9 Z" transform="rotate(-6)"/>
+      <path d="M0,2 Q36,-10 78,2 Q38,-3 0,9 Z" transform="rotate(32)"/>
+      <path d="M0,2 Q36,-10 78,2 Q38,-3 0,9 Z" transform="rotate(72)"/>
+      <path d="M0,2 Q-36,-10 -78,2 Q-38,-3 0,9 Z" transform="rotate(6)"/>
+      <path d="M0,2 Q-36,-10 -78,2 Q-38,-3 0,9 Z" transform="rotate(-32)"/>
+      <path d="M0,2 Q-36,-10 -78,2 Q-38,-3 0,9 Z" transform="rotate(-72)"/>
+    </g>
+  </g>
+
+  <!-- Dichte Büsche / Farn vorne -->
+  <g fill="#163d2b">
+    <ellipse cx="40"  cy="128" rx="50" ry="26"/>
+    <ellipse cx="150" cy="132" rx="44" ry="22"/>
+    <ellipse cx="320" cy="130" rx="56" ry="26"/>
+    <ellipse cx="500" cy="132" rx="48" ry="24"/>
+    <ellipse cx="650" cy="130" rx="52" ry="26"/>
+  </g>
+</svg>

@@ -4,7 +4,14 @@
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // ── Config ───────────────────────────────────────────────
-  const CRATE_COUNT = () => 2 + Math.floor(Math.random() * 2); // 2 or 3 per page
+  const MAX_CRATES   = 2;                  // gleichzeitig sichtbar
+  const CRATE_LIFE   = 22000;              // ms bis ungeklickte Kiste verschwindet
+  // Spawn-Intervall: 30–60 s → ~1–2 Kisten pro Minute, völlig wahllos
+  const crateDelay   = () => 30000 + Math.random() * 30000;
+  const firstDelay   = () => 8000  + Math.random() * 9000;
+
+  let crateTimer, fruitTimer;
+  let paused = localStorage.getItem('cf_paused') === '1';
 
   const TYPES = [
     { id: 'normal',   label: '!',   weight: 6 },
@@ -52,14 +59,6 @@
     let r = Math.random() * total;
     for (const t of weighted) { r -= t.weight; if (r <= 0) return t; }
     return TYPES[0];
-  }
-
-  function shuffle(arr) {
-    for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
   }
 
   // ── Web Audio smash sounds ───────────────────────────────
@@ -191,6 +190,7 @@
       el.className = 'cf-score';
       document.body.appendChild(el);
     }
+    el.style.display = paused ? 'none' : '';
     el.textContent = `🪵 ${score}`;
     el.classList.remove('cf-score--bump');
     void el.offsetWidth;
@@ -206,6 +206,7 @@
       el.className = 'cf-fruit-score';
       document.body.appendChild(el);
     }
+    el.style.display = paused ? 'none' : '';
     el.textContent = `🍎 ${fruitScore}`;
     el.classList.remove('cf-fruit-score--bump');
     void el.offsetWidth;
@@ -270,6 +271,7 @@
     if (el.dataset.gone) return;
     el.dataset.gone = '1';
     el.style.pointerEvents = 'none';
+    clearTimeout(el._despawn);
 
     playSound(type);
     burst(el, type);
@@ -288,13 +290,14 @@
   }
 
   // ── Create a single crate ────────────────────────────────
-  function makeCrate(pos) {
-    const t  = pickType();
+  function makeCrate(pos, forceType, posIdx) {
+    const t  = forceType ? (TYPES.find(x => x.id === forceType) || TYPES[0]) : pickType();
     const el = document.createElement('div');
     el.className = `cf-crate cf-crate--${t.id}`;
     el.setAttribute('role', 'button');
     el.setAttribute('tabindex', '0');
     el.setAttribute('aria-label', 'Versteckte Kiste – draufklicken!');
+    if (posIdx != null) el.dataset.posIdx = posIdx;
 
     const lbl = document.createElement('span');
     lbl.className = 'cf-crate__lbl';
@@ -309,11 +312,49 @@
     });
 
     document.body.appendChild(el);
+
+    // Ungeklickte Kisten verschwinden nach kurzer Zeit wieder leise
+    el._despawn = setTimeout(() => despawnCrate(el), CRATE_LIFE);
+    return el;
+  }
+
+  // Sanft ausblenden (nicht geklickt)
+  function despawnCrate(el) {
+    if (el.dataset.gone) return;
+    el.dataset.gone = '1';
+    el.style.pointerEvents = 'none';
+    if (reduce) { el.remove(); return; }
+    el.style.transition = 'opacity .45s ease, transform .45s ease';
+    el.style.opacity = '0';
+    el.style.transform = 'scale(.6)';
+    el.addEventListener('transitionend', () => el.remove(), { once: true });
+  }
+
+  // Eine zufällige Spruch-Kiste an freier Position spawnen
+  function spawnCrate() {
+    if (paused) return;
+    const live = [...document.querySelectorAll('.cf-crate')].filter(c => !c.dataset.gone);
+    if (live.length >= MAX_CRATES) return;
+
+    const used = new Set(live.map(c => c.dataset.posIdx));
+    const free = POSITIONS.map((p, i) => ({ p, i })).filter(o => !used.has(String(o.i)));
+    if (!free.length) return;
+
+    const pick = free[Math.floor(Math.random() * free.length)];
+    makeCrate(pick.p, 'question', pick.i); // nur Spruch-Kisten
+  }
+
+  function scheduleCrate(delay) {
+    clearTimeout(crateTimer);
+    crateTimer = setTimeout(() => {
+      spawnCrate();
+      scheduleCrate(crateDelay());
+    }, delay);
   }
 
   // ── Collectible falling fruit ────────────────────────────
   function spawnFruit() {
-    if (reduce) return;
+    if (paused || reduce) return;
     if (document.querySelectorAll('.cf-fruit').length >= 2) return;
 
     const f = document.createElement('div');
@@ -361,7 +402,7 @@
 
   function fruitLoop() {
     spawnFruit();
-    setTimeout(fruitLoop, 11000 + Math.random() * 9000);
+    fruitTimer = setTimeout(fruitLoop, 11000 + Math.random() * 9000);
   }
 
   // ── Idle wiggle (30s ohne Aktivität) ─────────────────────
@@ -392,26 +433,98 @@
     }
   }
   function party() {
-    POSITIONS.forEach(makeCrate);   // alle Kisten gleichzeitig
+    POSITIONS.forEach((p, i) => makeCrate(p, null, i));   // alle Kisten gleichzeitig, bunt gemischt
     confettiRain();
     showMaster('CRAZY!');
     playSound('question');
   }
 
+  // ── Steuerung: Pause + Punkte löschen ────────────────────
+  function buildControls() {
+    if (document.querySelector('.cf-controls')) return;
+    const wrap = document.createElement('div');
+    wrap.className = 'cf-controls';
+
+    const pauseBtn = document.createElement('button');
+    pauseBtn.type = 'button';
+    pauseBtn.className = 'cf-ctrl cf-ctrl--pause';
+    pauseBtn.addEventListener('click', togglePause);
+
+    const resetBtn = document.createElement('button');
+    resetBtn.type = 'button';
+    resetBtn.className = 'cf-ctrl cf-ctrl--reset';
+    resetBtn.textContent = '🗑';
+    resetBtn.title = 'Punktestand löschen';
+    resetBtn.setAttribute('aria-label', 'Punktestand zurücksetzen');
+    resetBtn.addEventListener('click', resetScore);
+
+    wrap.appendChild(pauseBtn);
+    wrap.appendChild(resetBtn);
+    document.body.appendChild(wrap);
+    syncPauseBtn();
+  }
+
+  function syncPauseBtn() {
+    const wrap = document.querySelector('.cf-controls');
+    const b = document.querySelector('.cf-ctrl--pause');
+    if (!b) return;
+    b.textContent = paused ? '▶' : '⏸';
+    b.title = paused ? 'Spiel fortsetzen' : 'Spiel pausieren';
+    b.setAttribute('aria-label', paused ? 'Easter-Egg-Spiel fortsetzen' : 'Easter-Egg-Spiel pausieren');
+    if (wrap) wrap.classList.toggle('cf-controls--paused', paused);
+
+    // Counter bei Pause ausblenden (Steuer-Panel bleibt sichtbar)
+    ['cf-score', 'cf-fruit-score'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = paused ? 'none' : '';
+    });
+  }
+
+  function stopGame() {
+    clearTimeout(crateTimer);
+    clearTimeout(fruitTimer);
+    clearTimeout(idleTimer);
+    document.querySelectorAll('.cf-crate, .cf-fruit').forEach(el => el.remove());
+  }
+
+  function startGame() {
+    scheduleCrate(firstDelay());
+    if (!reduce) {
+      fruitTimer = setTimeout(fruitLoop, 5000 + Math.random() * 4000);
+      resetIdle();
+    }
+  }
+
+  function togglePause() {
+    paused = !paused;
+    localStorage.setItem('cf_paused', paused ? '1' : '0');
+    syncPauseBtn();
+    paused ? stopGame() : startGame();
+  }
+
+  function resetScore() {
+    score = fruitScore = masterSeen = 0;
+    localStorage.setItem('cf_crates', '0');
+    localStorage.setItem('cf_fruit',  '0');
+    localStorage.setItem('cf_master', '0');
+    updateScore();
+    updateFruitScore();
+  }
+
   // ── Boot ─────────────────────────────────────────────────
   function init() {
+    buildControls();
     if (score > 0) updateScore();
     if (fruitScore > 0) updateFruitScore();
-    shuffle([...POSITIONS]).slice(0, CRATE_COUNT()).forEach(makeCrate);
 
     window.addEventListener('keydown', onKey);
 
     if (!reduce) {
-      setTimeout(fruitLoop, 5000 + Math.random() * 4000);
       ['mousemove', 'keydown', 'click', 'scroll', 'touchstart'].forEach(ev =>
         window.addEventListener(ev, resetIdle, { passive: true }));
-      resetIdle();
     }
+
+    if (!paused) startGame();
   }
 
   document.readyState === 'loading'
