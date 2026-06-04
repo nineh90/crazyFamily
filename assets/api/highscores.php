@@ -20,6 +20,7 @@ $GAMES = [
     'catcher' => 100000,
     'smash'   => 100000,
     'memory'  => 1000,
+    'land'    => 999999,   // CrazyFamily Land (HUD zeigt max. 6 Stellen)
 ];
 
 $FILE = __DIR__ . '/../data/highscores.json';

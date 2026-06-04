@@ -4,13 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CRAZYFAMILY – Mini-Games & Fun-Zone</title>
-  <meta name="description" content="Die CRAZYFAMILY Fun-Zone: kostenlose Mini-Games direkt im Browser – Snake, Frucht-Fänger, Kisten-Smash & Memory. Spiele auf PC und Handy, jage den Highscore von Alex & Kevin's Community." />
-  <meta name="keywords" content="CrazyFamily Spiele, Mini-Games, Snake online spielen, Browser Games, Gaming Fun-Zone, Highscore, Alex und Kevin Spiele" />
+  <meta name="description" content="Die CRAZYFAMILY Fun-Zone: kostenlose Games direkt im Browser – CrazyFamily Land (Retro-Jump'n'Run), Snake, Frucht-Fänger, Kisten-Smash & Memory. Spiele auf PC und Handy, jage den Highscore von Alex & Kevin's Community." />
+  <meta name="keywords" content="CrazyFamily Spiele, Mini-Games, CrazyFamily Land, Jump and Run, Snake online spielen, Browser Games, Gaming Fun-Zone, Highscore, Alex und Kevin Spiele" />
   <meta name="author" content="CRAZYFAMILY" />
   <link rel="canonical" href="https://crazyfamily.info/pages/games.php" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="CRAZYFAMILY – Mini-Games & Fun-Zone" />
-  <meta property="og:description" content="Snake, Frucht-Fänger, Kisten-Smash & Memory – kostenlose Mini-Games direkt im Browser. Jage den Highscore in der CRAZYFAMILY Fun-Zone!" />
+  <meta property="og:description" content="CrazyFamily Land, Snake, Frucht-Fänger, Kisten-Smash & Memory – kostenlose Games direkt im Browser. Jage den Highscore in der CRAZYFAMILY Fun-Zone!" />
   <meta property="og:image" content="https://crazyfamily.info/assets/images/logo-duo.png" />
   <meta property="og:image:alt" content="CRAZYFAMILY Mini-Games Fun-Zone" />
   <meta property="og:image:width" content="1000" />
@@ -20,7 +20,7 @@
   <meta property="og:locale" content="de_DE" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="CRAZYFAMILY Mini-Games & Fun-Zone" />
-  <meta name="twitter:description" content="Snake, Frucht-Fänger, Kisten-Smash & Memory – direkt im Browser spielen und Highscore knacken!" />
+  <meta name="twitter:description" content="CrazyFamily Land, Snake, Frucht-Fänger, Kisten-Smash & Memory – direkt im Browser spielen und Highscore knacken!" />
   <meta name="twitter:image" content="https://crazyfamily.info/assets/images/logo-duo.png" />
   <meta name="twitter:image:alt" content="CRAZYFAMILY Mini-Games Fun-Zone" />
   <meta name="theme-color" content="#0B0E14" />
@@ -39,6 +39,8 @@
 </head>
 
 <body>
+  <a class="skip" href="#main">Zum Inhalt springen</a>
+
   <!-- Header -->
   <?php include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php'; ?>
 
@@ -54,6 +56,11 @@
 
       <!-- Spiel-Auswahl -->
       <section id="gameSelect" class="games-grid" aria-label="Spiel auswählen">
+        <a class="game-tile game-tile--land" href="/pages/crazyfamily-land.php">
+          <span class="game-tile__icon">🕹️</span>
+          <span class="game-tile__name">CrazyFamily Land</span>
+          <span class="game-tile__desc">Retro-Jump'n'Run: 4 Welten, 12 Level, Bosse &amp; Superball!</span>
+        </a>
         <button type="button" class="game-tile game-tile--snake" data-game="snake">
           <span class="game-tile__icon">🐍</span>
           <span class="game-tile__name">Snake</span>
@@ -249,7 +256,7 @@
       else closeGame();
     });
 
-    select.querySelectorAll('.game-tile').forEach(tile =>
+    select.querySelectorAll('.game-tile[data-game]').forEach(tile =>
       tile.addEventListener('click', () => openGame(tile.dataset.game)));
 
     document.getElementById('closeGame').addEventListener('click', closeGame);

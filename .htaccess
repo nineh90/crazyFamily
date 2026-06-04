@@ -19,7 +19,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.+)\.html$ /$1.php [R=301,L]
 
 # 4️⃣ Sitemap von Rewrite-Regeln ausnehmen (damit Google sie direkt lesen kann)
-<Files "sitemap.xml">
+<Files "sitemap_index.xml">
   RewriteEngine Off
 </Files>
 

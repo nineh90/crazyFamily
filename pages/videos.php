@@ -51,6 +51,8 @@
 </head>
 
 <body>
+  <a class="skip" href="#main">Zum Inhalt springen</a>
+
   <!-- Header -->
   <?php include $_SERVER['DOCUMENT_ROOT'] . '/partials/header.php'; ?>
 

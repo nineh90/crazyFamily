@@ -142,7 +142,7 @@
   <!-- Splash -->
   <div id="splash" aria-hidden="true">
     <p class="logo-font">Welcome to the</p>
-    <img src="assets/images/logo-duo.png" alt="page loading..." class="splash-logo" width="1000" height="750">
+    <img src="assets/images/logo-duo.png" alt="" class="splash-logo" width="1000" height="750">
   </div>
 
   <!-- Header -->
@@ -174,9 +174,9 @@
           </div>
 
           <div class="hero__socials">
-            <a href="https://www.tiktok.com/@crazyfamilylp?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener"><img class="logo_hero" src="assets/images/tiktok_logo_icon.png" alt="TikTok"></a>
-            <a href="https://www.youtube.com/@CrazyFamilyLP/featured" target="_blank" rel="noopener"><img class="logo_hero" src="assets/images/youtube2_icon.png" alt="YouTube"></a>
-            <a href="https://discord.gg/H4TT6yR78w" target="_blank" rel="noopener"><img class="logo_hero" src="assets/images/discord_icon.png" alt="Discord"></a>
+            <a href="https://www.tiktok.com/@crazyfamilylp?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener"><img class="logo_hero" src="assets/images/tiktok_logo_icon.png" alt="TikTok" width="50" height="50"></a>
+            <a href="https://www.youtube.com/@CrazyFamilyLP/featured" target="_blank" rel="noopener"><img class="logo_hero" src="assets/images/youtube2_icon.png" alt="YouTube" width="50" height="50"></a>
+            <a href="https://discord.gg/H4TT6yR78w" target="_blank" rel="noopener"><img class="logo_hero" src="assets/images/discord_icon.png" alt="Discord" width="50" height="50"></a>
           </div>
         </div>
 
@@ -238,13 +238,13 @@
             <p class="bio"><strong>Folg mir hier:</strong></p>
             <p class="bio">
               <a href="https://www.tiktok.com/@crazyfamilylp?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener">
-                <img class="logo_hero" src="assets/images/tiktok_logo_icon.png" alt="TikTok Logo">
+                <img class="logo_hero" src="assets/images/tiktok_logo_icon.png" alt="TikTok Logo" width="50" height="50" loading="lazy">
               </a>
               <a href="https://www.youtube.com/@CrazyFamilyLP/featured" target="_blank" rel="noopener">
-                <img class="logo_hero" src="assets/images/youtube2_icon.png" alt="YouTube Logo">
+                <img class="logo_hero" src="assets/images/youtube2_icon.png" alt="YouTube Logo" width="50" height="50" loading="lazy">
               </a>
               <a href="https://discord.gg/H4TT6yR78w" target="_blank" rel="noopener">
-                <img class="logo_hero" src="assets/images/discord_icon.png" alt="Discord Logo">
+                <img class="logo_hero" src="assets/images/discord_icon.png" alt="Discord Logo" width="50" height="50" loading="lazy">
               </a>
             </p>
           </article>
@@ -257,7 +257,7 @@
             <p class="bio"><strong>Folg mir hier:</strong></p>
             <p class="bio">
               <a href="https://www.tiktok.com/@crazyfamilylp?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener">
-                <img class="logo_hero" src="assets/images/tiktok_logo_icon.png" alt="TikTok Logo">
+                <img class="logo_hero" src="assets/images/tiktok_logo_icon.png" alt="TikTok Logo" width="50" height="50" loading="lazy">
               </a>
             </p>
           </article>
@@ -270,7 +270,7 @@
             <p class="bio"><strong>Folg mir hier:</strong></p>
             <p class="bio">
               <a href="https://www.tiktok.com/@eileen.px3?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener">
-                <img class="logo_hero" src="assets/images/tiktok_logo_icon.png" alt="TikTok Logo">
+                <img class="logo_hero" src="assets/images/tiktok_logo_icon.png" alt="TikTok Logo" width="50" height="50" loading="lazy">
               </a>
             </p>
           </article>

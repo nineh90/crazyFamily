@@ -22,6 +22,8 @@
   <meta name="twitter:description" content="Der offizielle CRAZYFAMILY Shop mit Hoodies, Shirts, Stickern & Tassen – von Alex & Kevin." />
   <meta name="twitter:image" content="https://crazyfamily.info/assets/images/logo-duo.png" />
   <meta name="twitter:image:alt" content="CRAZYFAMILY Shop – Merch &amp; Fanartikel" />
+  <meta name="theme-color" content="#0B0E14" />
+  <link rel="manifest" href="/manifest.json" />
   <!-- Stylesheet & Font -->
   <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/style.css" />

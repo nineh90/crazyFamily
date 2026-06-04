@@ -2728,6 +2728,12 @@ body {
 .game-tile--catcher { --accent: var(--pink); }
 .game-tile--smash   { --accent: var(--orange); }
 .game-tile--memory  { --accent: var(--cyan); }
+/* CrazyFamily Land: Link-Kachel (eigene Spielseite), über volle Breite */
+.game-tile--land {
+  --accent: var(--purple);
+  grid-column: 1 / -1;
+  text-decoration: none;
+}
 
 @media (min-width: 720px) {
   .games-grid { grid-template-columns: repeat(4, 1fr); }

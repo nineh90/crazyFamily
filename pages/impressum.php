@@ -6,7 +6,7 @@
   <title>CRAZYFAMILY – Impressum</title>
   <meta name="theme-color" content="#0B0E14" />
   <meta name="description" content="Impressum der CRAZYFAMILY – Verantwortlich: Alexander Polskich, Lengerich." />
-  <meta name="robots" content="noindex, nofollow" />
+  <meta name="robots" content="noindex, follow" />
   <link rel="canonical" href="https://crazyfamily.info/pages/impressum.php" />
   <link rel="manifest" href="/manifest.json" />
   <!-- Favicon -->

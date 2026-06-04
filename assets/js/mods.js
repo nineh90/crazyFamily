@@ -42,7 +42,7 @@
         if (!p) return '';
         return `
           <a href="${url}" target="_blank" rel="noopener" class="btn">
-            <img class="logo_hero" src="${p.icon}" alt="${p.label}">
+            <img class="logo_hero" src="${p.icon}" alt="${p.label}" width="50" height="50" loading="lazy">
           </a>
         `;
       })

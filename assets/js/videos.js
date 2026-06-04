@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
           item => `
           <div class="video-card">
             <div class="video-thumb" onclick="playVideo('${item.id.videoId}')">
-              <img src="${item.snippet.thumbnails.high.url}" alt="${item.snippet.title}">
+              <img src="${item.snippet.thumbnails.high.url}" alt="${item.snippet.title}" width="480" height="360" loading="lazy">
               <div class="video-overlay">▶</div>
             </div>
             <h3>${item.snippet.title}</h3>

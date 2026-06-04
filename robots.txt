@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /config.php
+Disallow: /partials/
+Disallow: /assets/api/
 
 Sitemap: https://crazyfamily.info/sitemap_index.xml
