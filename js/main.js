@@ -14,21 +14,29 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Burger-Menü
+// === Burger-Menü (Hamburger-Portal auf allen Größen) ===
 const nav = document.getElementById('primaryNav');
 const toggle = document.getElementById('navToggle');
+
+const setNavOpen = (open) => {
+  if (!nav || !toggle) return;
+  nav.dataset.collapsed = String(!open);
+  toggle.setAttribute('aria-expanded', String(open));
+  toggle.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+  document.body.classList.toggle('nav-open', open);
+};
+
 toggle?.addEventListener('click', () => {
-  const expanded = toggle.getAttribute('aria-expanded') === 'true';
-  toggle.setAttribute('aria-expanded', String(!expanded));
-  nav.dataset.collapsed = expanded ? 'true' : 'false';
-  toggle.setAttribute('aria-label', expanded ? 'Menü öffnen' : 'Menü schließen');
+  setNavOpen(nav.dataset.collapsed === 'true');
 });
-// Auto-close on link tap (mobile)
-nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  if (getComputedStyle(toggle).display !== 'none') {
-    toggle.click();
-  }
-}));
+
+// Schließen bei Linkklick
+nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setNavOpen(false)));
+
+// Schließen mit Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && nav?.dataset.collapsed === 'false') setNavOpen(false);
+});
 
 // === CRAZYFAMILY Quotes & Insider Chips ===
 (function initCrazyQuotes() {

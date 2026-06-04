@@ -16,6 +16,7 @@
       <a href="/#qanda">Q&amp;A</a>
       <a href="/pages/events.php">Events</a>
       <a href="/pages/community.php">Community</a>
+      <a href="/pages/games.php">Games</a>
       <a href="/pages/shop.php" class="nav-shop-link" target="_blank" rel="noopener noreferrer">Shop ↗</a>
       <!-- Socials (mobile only – desktop shows in header-socials) -->
       <div class="nav-socials">

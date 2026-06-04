@@ -26,6 +26,7 @@
           <li><a href="/pages/sounds.php">Sounds</a></li>
           <li><a href="/pages/events.php">Events</a></li>
           <li><a href="/pages/community.php">Community</a></li>
+          <li><a href="/pages/games.php">Games</a></li>
           <li><a href="/pages/shop.php" target="_blank" rel="noopener">Shop ↗</a></li>
           <li><a href="/pages/impressum.php">Impressum</a></li>
         </ul>

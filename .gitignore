@@ -1,2 +1,6 @@
 config.php
 TODO.md
+
+# Wächst zur Laufzeit auf dem Server – darf von Deploys nicht überschrieben werden.
+# Seed-Datei (leere Listen) einmalig manuell auf Strato hochladen + beschreibbar machen.
+assets/data/highscores.json

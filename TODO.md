@@ -205,28 +205,32 @@
 - [x] **Reset-Button** – löscht Kisten-, Frucht- & Master-Score (`🗑`); kleines Steuer-Panel unten rechts über den Countern
 
 ### 5.3 Mini-Games-Bereich ← VOM KUNDEN GEWÜNSCHT (2026-06-04)
-> **Status:** [ ] Geplant – **Konzept & Machbarkeit erst mit Nils/Kunde abstimmen**, dann umsetzen.
-> Eigener Bereich/Seite `pages/games.php` mit kleinen, browserbasierten Mini-Games (reines JS, kein Build-Tool).
+> **Status:** [x] Umgesetzt (Briefing 2026-06-04 abgestimmt: volle Zone, 4 Spiele, Crash/Neon-Stil,
+> Highscores lokal + leichtgewichtige globale Bestenliste ohne Accounts).
+> Eigener Bereich `pages/games.php` mit browserbasierten Mini-Games (reines JS/Canvas, kein Build-Tool).
 >
-> **Zu klären im nächsten Gespräch:**
-> - Welche Spiele genau? (Reihenfolge / Priorität)
-> - Mobile-tauglich (Touch-Steuerung) Pflicht?
-> - Highscores nur lokal (localStorage) oder serverseitig (PHP + Datei/DB)?
-> - Sollen die Spiele in den bestehenden Easter-Egg-/Crash-Stil passen?
+> **Abgestimmte Eckpunkte:**
+> - Spiele: 🐍 Snake · 🍎 Frucht-Fänger · 📦 Kisten-Smash · 🧠 Memory
+> - Mobile/Touch: Pflicht ✓ (Swipe für Snake, Tap/Drag für Rest, `touch-action:none`)
+> - Highscores: lokal (localStorage) **+** globale Top-10 ohne Login (nur Spitzname) via PHP
+> - Stil: voll im Crash/Neon-Look, recycelt Sounds/Partikel-Technik aus `crates.js`
 >
-> **Ideen-Pool (eigenständig, kein Marken-Asset):**
-> - 🍎 **Frucht-Fänger** – fallende Früchte mit einer Korb-/Kiste am unteren Rand fangen (baut auf bestehendem Frucht-System auf)
-> - 📦 **Kisten-Smash** – Reaktionsspiel: Kisten erscheinen, möglichst schnell anklicken, TNT vermeiden
-> - 🏃 **Endless-Runner** – das Crash-Runner-Männchen läuft, über Hindernisse springen/Kisten zerschlagen
-> - 🧠 **Memory** – Kisten-Paare aufdecken (CrazyFamily-Motive)
+> **Markenrecht:** nur eigene CSS/Canvas-Assets + Emojis, eigene Web-Audio-Sounds,
+> generische Mechaniken, keine fremden Logos/Namen.
 >
-> **Tasks (nach Abstimmung):**
-- [ ] Konzept + Spielauswahl mit Kunde final abstimmen
-- [ ] `pages/games.php` anlegen (Layout im Crash-Stil)
-- [ ] Navigation-Link "Games" in `header.php` + Footer ergänzen
-- [ ] `sitemap_index.xml` um `games.php` erweitern
-- [ ] Erstes Mini-Game implementieren (Vorschlag: Frucht-Fänger)
-- [ ] Highscore-Anzeige (localStorage)
+> **Architektur:** `assets/js/games/arcade.js` (geteilte Basis: `window.CFArcade` – Sound,
+> Partikel, Loop, Highscore-Bridge) + je ein Modul `snake.js` / `catcher.js` / `smash.js` /
+> `memory.js`. API-Endpoint `assets/api/highscores.php` (+ `assets/data/highscores.json`).
+>
+- [x] Konzept + Spielauswahl mit Kunde final abstimmen
+- [x] `pages/games.php` anlegen (Layout im Crash-Stil, Auswahl-Grid + Bühne + Bestenliste)
+- [x] Navigation-Link "Games" in `header.php` + Footer ergänzen
+- [x] `sitemap_index.xml` um `games.php` erweitern
+- [x] Mini-Games implementiert: Snake, Frucht-Fänger, Kisten-Smash, Memory
+- [x] Highscore-Anzeige (localStorage) + globale Bestenliste (PHP-API, ohne Accounts)
+- [x] `assets/data/highscores.json` in `.gitignore` (Deploy darf Server-Liste nicht überschreiben)
+- [ ] **⚠️ VOR/BEIM DEPLOYMENT:** `assets/data/highscores.json` einmalig auf Strato hochladen
+      und **beschreibbar** machen (chmod), damit die PHP-API Scores speichern kann.
 
 ---
 
@@ -238,5 +242,5 @@
 | Phase 2 – PHP-Migration | 20 / 20 Tasks | ✅ Abgeschlossen |
 | Phase 3 – SEO | 14 / 14 Tasks | ✅ Abgeschlossen |
 | Phase 4 – Features | 9 / 11 Tasks | 🟩 Nahezu fertig (Discord-Webhook offen) |
-| Phase 5 – Easter Eggs | 22 / 23 Tasks | 🟩 Kisten + Erweiterungen fertig (nur optionale Maske offen) |
+| Phase 5 – Easter Eggs | 28 / 30 Tasks | 🟩 Kisten + Mini-Games fertig (optionale Maske + Strato-Schreibrechte offen) |
 | Technische Schulden | 6 / 6 Tasks | ✅ Abgeschlossen |

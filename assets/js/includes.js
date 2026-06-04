@@ -29,21 +29,29 @@
     // Wenn kein Header existiert (z. B. Shopseite), beende Funktion still
     if (!header || !nav || !toggle) return;
 
-    // Burger-Menü
+    const setOpen = (open) => {
+      nav.setAttribute('data-collapsed', String(!open));
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+      document.body.classList.toggle('nav-open', open);
+    };
+
+    // Burger-Menü (Hamburger auf allen Größen)
     toggle.addEventListener('click', () => {
       const collapsed = nav.getAttribute('data-collapsed') === 'true';
-      nav.setAttribute('data-collapsed', String(!collapsed));
-      toggle.setAttribute('aria-expanded', String(collapsed));
-      document.body.classList.toggle('nav-open', collapsed);
+      setOpen(collapsed);
     });
 
-    // Menü schließen bei Linkklick (mobil)
+    // Menü schließen bei Linkklick
     nav.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        nav.setAttribute('data-collapsed', 'true');
-        toggle.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('nav-open');
-      });
+      a.addEventListener('click', () => setOpen(false));
+    });
+
+    // Menü mit Escape schließen
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && nav.getAttribute('data-collapsed') === 'false') {
+        setOpen(false);
+      }
     });
 
     // Sticky Header

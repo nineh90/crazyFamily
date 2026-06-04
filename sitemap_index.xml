@@ -61,6 +61,14 @@
     <priority>0.6</priority>
   </url>
 
+  <!-- Games / Fun-Zone -->
+  <url>
+    <loc>https://crazyfamily.info/pages/games.php</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Impressum (noindex, trotzdem in Sitemap für Auffindbarkeit) -->
   <url>
     <loc>https://crazyfamily.info/pages/impressum.php</loc>
