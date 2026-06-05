@@ -28,15 +28,6 @@
     }
   },
   {
-    "name": "Candy",
-    "rolle": "Moderatorin",
-    "bild": "/assets/images/moderator_candy.png",
-    "beschreibung": "Herzlich, klar, direkt – perfekte Mischung aus Charme und Durchsetzungsvermögen.",
-    "links": {
-      "tiktok": "https://www.tiktok.com/@candy_schlicht?_t=ZN-90f1YA3wY5u&_r=1"
-    }
-  },
-  {
     "name": "Nikk",
     "rolle": "Moderator",
     "bild": "/assets/images/moderator_nikk.png",
