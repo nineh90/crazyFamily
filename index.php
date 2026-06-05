@@ -12,17 +12,17 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="CRAZYFAMILY – Alex & Kevin | Streams, Clips & Community" />
   <meta property="og:description" content="CRAZYFAMILY: Das verrückteste Streaming-Duo auf TikTok & YouTube. Unterhaltung, Spaß und Chaos mit Herz!" />
-  <meta property="og:image" content="https://crazyfamily.info/assets/images/logo-duo.png" />
+  <meta property="og:image" content="https://crazyfamily.info/assets/images/og-image.jpg" />
   <meta property="og:image:alt" content="CRAZYFAMILY – Alex &amp; Kevin, TikTok Gaming Duo" />
-  <meta property="og:image:width" content="1000" />
-  <meta property="og:image:height" content="750" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:url" content="https://crazyfamily.info/" />
   <meta property="og:site_name" content="CRAZYFAMILY" />
   <meta property="og:locale" content="de_DE" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="CRAZYFAMILY – Alex & Kevin | Streams, Clips & Community" />
   <meta name="twitter:description" content="Livestreams, Challenges & Spaß pur auf TikTok, YouTube & Discord!" />
-  <meta name="twitter:image" content="https://crazyfamily.info/assets/images/logo-duo.png" />
+  <meta name="twitter:image" content="https://crazyfamily.info/assets/images/og-image.jpg" />
   <meta name="twitter:image:alt" content="CRAZYFAMILY – Alex &amp; Kevin, TikTok Gaming Duo" />
   <meta name="theme-color" content="#0B0E14" />
   <link rel="manifest" href="/manifest.json">

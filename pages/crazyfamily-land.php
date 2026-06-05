@@ -5,23 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>CRAZYFAMILY LAND – Retro Jump'n'Run im Browser</title>
 <meta name="description" content="CRAZYFAMILY LAND: Retro-Jump'n'Run im Game-Boy-Look – 4 Welten, 12 Level, Bosse, Superball-Power-up. Kostenlos im Browser spielen, auf PC und Handy!" />
-<meta name="keywords" content="CrazyFamily Land, Jump and Run Browsergame, Retro Game online spielen, Pixel Jump n Run, CrazyFamily Spiele" />
+<meta name="keywords" content="CrazyFamily Land, CrazyFamilyLand, Jump and Run Browsergame, Retro Game online spielen, Pixel Jump n Run, CrazyFamily Spiele" />
 <meta name="author" content="CRAZYFAMILY" />
 <link rel="canonical" href="https://crazyfamily.info/pages/crazyfamily-land.php" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="CRAZYFAMILY LAND – Retro Jump'n'Run im Browser" />
 <meta property="og:description" content="4 Welten, 12 Level, Bosse & Superball-Power-up – das Retro-Jump'n'Run der CRAZYFAMILY. Direkt im Browser spielen!" />
-<meta property="og:image" content="https://crazyfamily.info/assets/images/logo-duo.png" />
+<meta property="og:image" content="https://crazyfamily.info/assets/images/og-image.jpg" />
 <meta property="og:image:alt" content="CRAZYFAMILY LAND Jump'n'Run" />
-<meta property="og:image:width" content="1000" />
-<meta property="og:image:height" content="750" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta property="og:url" content="https://crazyfamily.info/pages/crazyfamily-land.php" />
 <meta property="og:site_name" content="CRAZYFAMILY" />
 <meta property="og:locale" content="de_DE" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="CRAZYFAMILY LAND – Retro Jump'n'Run" />
 <meta name="twitter:description" content="4 Welten, 12 Level, Bosse – das Retro-Jump'n'Run der CRAZYFAMILY direkt im Browser spielen!" />
-<meta name="twitter:image" content="https://crazyfamily.info/assets/images/logo-duo.png" />
+<meta name="twitter:image" content="https://crazyfamily.info/assets/images/og-image.jpg" />
 <meta name="twitter:image:alt" content="CRAZYFAMILY LAND Jump'n'Run" />
 <meta name="theme-color" content="#0B0E14" />
 <link rel="manifest" href="/manifest.json" />
@@ -35,6 +35,41 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 <meta name="msapplication-TileColor" content="#0B0E14" />
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+
+<!-- Schema.org: VideoGame (alternateName deckt die Ein-Wort-Suche „CrazyFamilyLand" ab) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "CrazyFamily Land",
+  "alternateName": ["CrazyFamilyLand", "CRAZYFAMILY LAND", "Crazy Family Land"],
+  "url": "https://crazyfamily.info/pages/crazyfamily-land.php",
+  "image": "https://crazyfamily.info/assets/images/og-image.jpg",
+  "description": "CrazyFamily Land ist das kostenlose Retro-Jump'n'Run der CRAZYFAMILY im Game-Boy-Look: 4 Welten, 12 Level, Bosse und Superball-Power-up – direkt im Browser auf PC und Handy spielbar, mit globaler Bestenliste.",
+  "genre": "Jump'n'Run",
+  "playMode": "SinglePlayer",
+  "gamePlatform": ["Web Browser", "PC", "Smartphone"],
+  "applicationCategory": "Game",
+  "operatingSystem": "Web",
+  "inLanguage": "de",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "publisher": { "@type": "Organization", "name": "CRAZYFAMILY", "url": "https://crazyfamily.info/" }
+}
+</script>
+
+<!-- Schema.org: Breadcrumbs -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://crazyfamily.info/" },
+    { "@type": "ListItem", "position": 2, "name": "Mini-Games & Fun-Zone", "item": "https://crazyfamily.info/pages/games.php" },
+    { "@type": "ListItem", "position": 3, "name": "CrazyFamily Land", "item": "https://crazyfamily.info/pages/crazyfamily-land.php" }
+  ]
+}
+</script>
 
 <!-- Vollbild-Spielseite: lädt bewusst NICHT css/style.css – das Spiel bringt
      eigene Styles mit (html/body overflow:hidden, .btn etc. würden kollidieren) -->
@@ -120,6 +155,15 @@
     </div>
   </div>
   <div id="hint">⌨ Pfeiltasten/WASD bewegen · A/Leertaste springen · B/Shift rennen &amp; Superball · P Pause · ESC beenden · Enter wählen</div>
+  <noscript>
+    <p style="max-width:480px;text-align:center;color:#A9B0BE;font-size:13px;line-height:1.5;">
+      <strong>CrazyFamily Land</strong> (CrazyFamilyLand) ist das kostenlose Retro-Jump'n'Run
+      der CRAZYFAMILY im Game-Boy-Look: 4 Welten, 12 Level, Bosse und Superball-Power-up –
+      direkt im Browser auf PC und Handy spielbar, mit globaler Bestenliste.
+      Zum Spielen muss JavaScript aktiviert sein.
+      Mehr Games findest du in der <a href="/pages/games.php" style="color:#B6FF00;">CRAZYFAMILY Fun-Zone</a>.
+    </p>
+  </noscript>
 </div>
 
 <button type="button" id="boardBtn" aria-label="Bestenliste anzeigen" title="Bestenliste">🏆</button>

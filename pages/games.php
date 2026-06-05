@@ -11,17 +11,17 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="CRAZYFAMILY – Mini-Games & Fun-Zone" />
   <meta property="og:description" content="CrazyFamily Land, Snake, Frucht-Fänger, Kisten-Smash & Memory – kostenlose Games direkt im Browser. Jage den Highscore in der CRAZYFAMILY Fun-Zone!" />
-  <meta property="og:image" content="https://crazyfamily.info/assets/images/logo-duo.png" />
+  <meta property="og:image" content="https://crazyfamily.info/assets/images/og-image.jpg" />
   <meta property="og:image:alt" content="CRAZYFAMILY Mini-Games Fun-Zone" />
-  <meta property="og:image:width" content="1000" />
-  <meta property="og:image:height" content="750" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:url" content="https://crazyfamily.info/pages/games.php" />
   <meta property="og:site_name" content="CRAZYFAMILY" />
   <meta property="og:locale" content="de_DE" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="CRAZYFAMILY Mini-Games & Fun-Zone" />
   <meta name="twitter:description" content="CrazyFamily Land, Snake, Frucht-Fänger, Kisten-Smash & Memory – direkt im Browser spielen und Highscore knacken!" />
-  <meta name="twitter:image" content="https://crazyfamily.info/assets/images/logo-duo.png" />
+  <meta name="twitter:image" content="https://crazyfamily.info/assets/images/og-image.jpg" />
   <meta name="twitter:image:alt" content="CRAZYFAMILY Mini-Games Fun-Zone" />
   <meta name="theme-color" content="#0B0E14" />
   <link rel="manifest" href="/manifest.json" />
@@ -36,6 +36,123 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <meta name="msapplication-TileColor" content="#0B0E14" />
   <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+
+  <!-- Schema.org: Spieleliste der Fun-Zone (VideoGame, damit Google die Games versteht) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "CRAZYFAMILY Mini-Games & Fun-Zone",
+    "description": "Kostenlose Browser-Games der CRAZYFAMILY: CrazyFamily Land, Snake, Frucht-Fänger, Kisten-Smash und Memory.",
+    "url": "https://crazyfamily.info/pages/games.php",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "VideoGame",
+          "name": "CrazyFamily Land",
+          "alternateName": ["CrazyFamilyLand", "CRAZYFAMILY LAND", "Crazy Family Land"],
+          "url": "https://crazyfamily.info/pages/crazyfamily-land.php",
+          "description": "Retro-Jump'n'Run im Game-Boy-Look: 4 Welten, 12 Level, Bosse und Superball-Power-up – kostenlos im Browser auf PC und Handy spielen.",
+          "genre": "Jump'n'Run",
+          "playMode": "SinglePlayer",
+          "gamePlatform": ["Web Browser", "PC", "Smartphone"],
+          "applicationCategory": "Game",
+          "operatingSystem": "Web",
+          "inLanguage": "de",
+          "isAccessibleForFree": true,
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+          "publisher": { "@type": "Organization", "name": "CRAZYFAMILY", "url": "https://crazyfamily.info/" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "VideoGame",
+          "name": "CrazyFamily Snake",
+          "url": "https://crazyfamily.info/pages/games.php",
+          "description": "Der Arcade-Klassiker Snake im CRAZYFAMILY-Look – friss, wachse und knack den Highscore der Community.",
+          "genre": "Arcade",
+          "playMode": "SinglePlayer",
+          "gamePlatform": ["Web Browser", "PC", "Smartphone"],
+          "applicationCategory": "Game",
+          "operatingSystem": "Web",
+          "inLanguage": "de",
+          "isAccessibleForFree": true,
+          "publisher": { "@type": "Organization", "name": "CRAZYFAMILY", "url": "https://crazyfamily.info/" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "VideoGame",
+          "name": "Frucht-Fänger",
+          "url": "https://crazyfamily.info/pages/games.php",
+          "description": "Reaktionsspiel der CRAZYFAMILY: Früchte fangen, Bomben ausweichen – direkt im Browser.",
+          "genre": "Arcade",
+          "playMode": "SinglePlayer",
+          "gamePlatform": ["Web Browser", "PC", "Smartphone"],
+          "applicationCategory": "Game",
+          "operatingSystem": "Web",
+          "inLanguage": "de",
+          "isAccessibleForFree": true,
+          "publisher": { "@type": "Organization", "name": "CRAZYFAMILY", "url": "https://crazyfamily.info/" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "VideoGame",
+          "name": "Kisten-Smash",
+          "url": "https://crazyfamily.info/pages/games.php",
+          "description": "Klick-Reaktionsspiel der CRAZYFAMILY: Kisten zerschlagen, TNT vermeiden – wer schafft die meisten Punkte?",
+          "genre": "Arcade",
+          "playMode": "SinglePlayer",
+          "gamePlatform": ["Web Browser", "PC", "Smartphone"],
+          "applicationCategory": "Game",
+          "operatingSystem": "Web",
+          "inLanguage": "de",
+          "isAccessibleForFree": true,
+          "publisher": { "@type": "Organization", "name": "CRAZYFAMILY", "url": "https://crazyfamily.info/" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@type": "VideoGame",
+          "name": "CrazyFamily Memory",
+          "url": "https://crazyfamily.info/pages/games.php",
+          "description": "Memory-Spiel der CRAZYFAMILY: Finde alle Paare in möglichst wenigen Zügen – kostenlos im Browser.",
+          "genre": "Puzzle",
+          "playMode": "SinglePlayer",
+          "gamePlatform": ["Web Browser", "PC", "Smartphone"],
+          "applicationCategory": "Game",
+          "operatingSystem": "Web",
+          "inLanguage": "de",
+          "isAccessibleForFree": true,
+          "publisher": { "@type": "Organization", "name": "CRAZYFAMILY", "url": "https://crazyfamily.info/" }
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Schema.org: Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://crazyfamily.info/" },
+      { "@type": "ListItem", "position": 2, "name": "Mini-Games & Fun-Zone", "item": "https://crazyfamily.info/pages/games.php" }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -48,9 +165,11 @@
   <main id="main" class="section">
     <div class="container">
       <p><a href="/" class="back-link">← Zurück zur Startseite</a></p>
-      <h1>Mini-Games &amp; Fun-Zone</h1>
+      <h1>CRAZYFAMILY Mini-Games &amp; Fun-Zone</h1>
       <p class="bio">
-        Kleine Spiele für zwischendurch – läuft direkt im Browser, auch am Handy.
+        Kleine Spiele für zwischendurch – kostenlos direkt im Browser, auch am Handy.
+        Highlight ist <strong>CrazyFamily Land</strong>, unser eigenes Retro-Jump'n'Run –
+        dazu Snake, Frucht-Fänger, Kisten-Smash und Memory.
         Knack deinen Rekord und trag dich in die Bestenliste ein! 🎮
       </p>
 

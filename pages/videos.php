@@ -14,10 +14,10 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="CRAZYFAMILY – Videos & Livestream-Highlights" />
   <meta property="og:description" content="Erlebe die besten CRAZYFAMILY Videos: Livestream-Momente, Challenges & Highlights von Alex & Kevin auf YouTube und TikTok." />
-  <meta property="og:image" content="https://crazyfamily.info/assets/images/logo-duo.png" />
+  <meta property="og:image" content="https://crazyfamily.info/assets/images/og-image.jpg" />
   <meta property="og:image:alt" content="CRAZYFAMILY Videos &amp; Livestream-Highlights" />
-  <meta property="og:image:width" content="1000" />
-  <meta property="og:image:height" content="750" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:url" content="https://crazyfamily.info/pages/videos.php" />
   <meta property="og:site_name" content="CRAZYFAMILY" />
   <meta property="og:locale" content="de_DE" />
@@ -25,7 +25,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="CRAZYFAMILY – Videos & Livestream-Highlights" />
   <meta name="twitter:description" content="Highlights & TikTok-Clips von Alex & Kevin – CRAZYFAMILYLP auf YouTube & TikTok!" />
-  <meta name="twitter:image" content="https://crazyfamily.info/assets/images/logo-duo.png" />
+  <meta name="twitter:image" content="https://crazyfamily.info/assets/images/og-image.jpg" />
   <meta name="twitter:image:alt" content="CRAZYFAMILY Videos &amp; Livestream-Highlights" />
   <!-- Theme & Manifest -->
   <meta name="theme-color" content="#0B0E14" />

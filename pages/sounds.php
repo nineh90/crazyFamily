@@ -13,10 +13,10 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="CRAZYFAMILY – Sounds, Musik & Community-Tracks" />
   <meta property="og:description" content="Offizielle CRAZYFAMILY Sounds, Intros & Musik von Alex & Kevin – direkt aus der Community für die Community!" />
-  <meta property="og:image" content="https://crazyfamily.info/assets/images/logo-duo.png" />
+  <meta property="og:image" content="https://crazyfamily.info/assets/images/og-image.jpg" />
   <meta property="og:image:alt" content="CRAZYFAMILY Sounds &amp; Musik" />
-  <meta property="og:image:width" content="1000" />
-  <meta property="og:image:height" content="750" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:url" content="https://crazyfamily.info/pages/sounds.php" />
   <meta property="og:site_name" content="CRAZYFAMILY" />
   <meta property="og:locale" content="de_DE" />
@@ -24,7 +24,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="CRAZYFAMILY – Sounds, Musik & Community-Tracks" />
   <meta name="twitter:description" content="Hör dir die CRAZYFAMILY Sounds und Musikstücke an – Soundtrack zu Streams & Spaß!" />
-  <meta name="twitter:image" content="https://crazyfamily.info/assets/images/logo-duo.png" />
+  <meta name="twitter:image" content="https://crazyfamily.info/assets/images/og-image.jpg" />
   <meta name="twitter:image:alt" content="CRAZYFAMILY Sounds &amp; Musik" />
   <!-- Theme & Manifest -->
   <meta name="theme-color" content="#0B0E14" />

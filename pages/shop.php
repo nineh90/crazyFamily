@@ -10,17 +10,17 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="CRAZYFAMILY Shop – Merch & Fanartikel" />
   <meta property="og:description" content="Offizieller CRAZYFAMILY Merch: Hoodies, Shirts, Sticker, Tassen & mehr – direkt aus der Community!" />
-  <meta property="og:image" content="https://crazyfamily.info/assets/images/logo-duo.png" />
+  <meta property="og:image" content="https://crazyfamily.info/assets/images/og-image.jpg" />
   <meta property="og:image:alt" content="CRAZYFAMILY Shop – Merch &amp; Fanartikel" />
-  <meta property="og:image:width" content="1000" />
-  <meta property="og:image:height" content="750" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:url" content="https://crazyfamily.info/pages/shop.php" />
   <meta property="og:site_name" content="CRAZYFAMILY" />
   <meta property="og:locale" content="de_DE" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="CRAZYFAMILY Shop – Merch & Fanartikel" />
   <meta name="twitter:description" content="Der offizielle CRAZYFAMILY Shop mit Hoodies, Shirts, Stickern & Tassen – von Alex & Kevin." />
-  <meta name="twitter:image" content="https://crazyfamily.info/assets/images/logo-duo.png" />
+  <meta name="twitter:image" content="https://crazyfamily.info/assets/images/og-image.jpg" />
   <meta name="twitter:image:alt" content="CRAZYFAMILY Shop – Merch &amp; Fanartikel" />
   <meta name="theme-color" content="#0B0E14" />
   <link rel="manifest" href="/manifest.json" />

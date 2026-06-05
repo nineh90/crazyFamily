@@ -12,10 +12,10 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="CRAZYFAMILY – Moderatoren & Team" />
   <meta property="og:description" content="Das Moderatorenteam der CRAZYFAMILY: Anja, Paddy, Danny, Candy, Nikk, Susi, SGE und Sunny – sie halten Ordnung im Chaos!" />
-  <meta property="og:image" content="https://crazyfamily.info/assets/images/logo-duo.png" />
+  <meta property="og:image" content="https://crazyfamily.info/assets/images/og-image.jpg" />
   <meta property="og:image:alt" content="CRAZYFAMILY Moderatoren-Team" />
-  <meta property="og:image:width" content="1000" />
-  <meta property="og:image:height" content="750" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:url" content="https://crazyfamily.info/pages/mods.php" />
   <meta property="og:site_name" content="CRAZYFAMILY" />
   <meta property="og:locale" content="de_DE" />
@@ -23,7 +23,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="CRAZYFAMILY – Moderatoren & Team" />
   <meta name="twitter:description" content="Lerne die CRAZYFAMILY Moderatoren kennen – das Team hinter Alex & Kevin!" />
-  <meta name="twitter:image" content="https://crazyfamily.info/assets/images/logo-duo.png" />
+  <meta name="twitter:image" content="https://crazyfamily.info/assets/images/og-image.jpg" />
   <meta name="twitter:image:alt" content="CRAZYFAMILY Moderatoren-Team" />
   <!-- Theme / Manifest -->
   <meta name="theme-color" content="#0B0E14" />
