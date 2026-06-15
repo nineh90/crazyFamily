@@ -140,6 +140,20 @@
 - [x] Auf allen Seiten aktiv (via header.php)
 
 ### 4.2 Eventkalender
+
+> **JSON-Format für `assets/data/events.json`** (für spätere Einträge):
+> ```json
+> [
+>   {
+>     "date": "YYYY-MM-DD",
+>     "title": "Titel des Events",
+>     "type": "special",
+>     "note": "Kurze Beschreibung für die Event-Liste"
+>   }
+> ]
+> ```
+> `type`-Werte: `"stream"` (normaler Stream-Tag) · `"special"` (Sonder-Event, wird farblich hervorgehoben)
+
 - [x] `assets/data/events.json` angelegt (Special Events)
 - [x] `pages/events.php` erstellt (Monatstabelle + Event-Liste)
 - [x] `assets/js/calendar.js` – Monatstabelle als CSS-Grid (Bug: STREAM_DAYS war [1,3,5] → korrigiert auf [0,2,4] = Mo/Mi/Fr)
@@ -231,6 +245,24 @@
 - [x] `assets/data/highscores.json` in `.gitignore` (Deploy darf Server-Liste nicht überschreiben)
 - [ ] **⚠️ VOR/BEIM DEPLOYMENT:** `assets/data/highscores.json` einmalig auf Strato hochladen
       und **beschreibbar** machen (chmod), damit die PHP-API Scores speichern kann.
+
+### 5.4 Kevins neue Spiele integrieren ← VOM KUNDEN GEWÜNSCHT (2026-06-15)
+> **Status:** [x] Umgesetzt. Drei von Kevin gebaute Spiele (Übergabe-Ordner `Games/`)
+> nach dem `crazyfamily-land.php`-Muster als eigenständige Vollbild-`.php`-Seiten eingebunden.
+> Spiele selbst unverändert – einzige Änderung: 1 Zeile Game-Over-Event für den Highscore.
+> Abgestimmt: Doom ohne Highscore, WADs nicht in git.
+
+- [x] **CrazyFamily Chomp** → `pages/crazyfamily-chomp.php` (Labyrinth-Arcade), Highscore-Overlay (API-Key `chomp`)
+- [x] **CrazyFamily Rush** → `pages/crazyfamily-rush.php` (3D-Runner, Three.js via CDN), Highscore-Overlay (API-Key `rush`)
+- [x] **CrazyFamily Doom** → `pages/crazyfamily-doom/` (echte Doom-Engine, WASM) – **bewusst ohne Highscore** (Engine liefert keinen auslesbaren Score)
+- [x] Highscore-Event `cfgame:final` in Chomp & Rush (je 1 Zeile am Game-Over-Punkt) + Overlay-Controller/-Styles inline
+- [x] `assets/api/highscores.php`: Keys `chomp` + `rush` ergänzt (Cap 999999); Doom bewusst nicht
+- [x] `pages/games.php`: drei Link-Kacheln + Schema.org-`ItemList` (jetzt 8 Spiele) + Intro/Meta erweitert
+- [x] `css/style.css`: Kachel-Modifier `.game-tile--chomp/--rush/--doom`
+- [x] `sitemap_index.xml`: drei neue Spielseiten ergänzt
+- [x] `.gitignore`: `*.wad` (58 MB) + `serve.py` + Übergabe-Ordner `Games/` ausgeschlossen
+- [ ] **⚠️ VOR/BEIM DEPLOYMENT:** `freedoom1.wad` + `freedoom2.wad` einmalig manuell nach `pages/crazyfamily-doom/` auf Strato laden (gitignored) + die dortige `.htaccess` mit hochladen (WASM-MIME)
+- [ ] Übergabe-Ordner `Games/` löschen, sobald alles live verifiziert ist (enthält nur noch die Quell-HTMLs von Chomp & Rush)
 
 ---
 

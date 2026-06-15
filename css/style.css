@@ -2734,6 +2734,13 @@ body {
   grid-column: 1 / -1;
   text-decoration: none;
 }
+/* Weitere eigenständige Spielseiten (Link-Kacheln) */
+.game-tile--chomp,
+.game-tile--rush,
+.game-tile--doom { text-decoration: none; }
+.game-tile--chomp { --accent: var(--orange); }
+.game-tile--rush  { --accent: var(--lime); }
+.game-tile--doom  { --accent: var(--yt); }
 
 @media (min-width: 720px) {
   .games-grid { grid-template-columns: repeat(4, 1fr); }

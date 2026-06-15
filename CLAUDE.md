@@ -62,6 +62,14 @@ pages/
   games.php             → Mini-Games-Bereich (Snake, Frucht-Fänger, Kisten-Smash, Memory)
   crazyfamily-land.php  → CrazyFamily Land: eigenständige Vollbild-Spielseite (Retro-Jump'n'Run,
                           lädt bewusst NICHT style.css – eigene Inline-Styles; verlinkt von games.php)
+  crazyfamily-chomp.php → CrazyFamily Chomp: Vollbild-Labyrinth-Arcade (eigene Inline-Styles,
+                          Highscore-Overlay via arcade.js, API-Key 'chomp'; verlinkt von games.php)
+  crazyfamily-rush.php  → CrazyFamily Rush: Vollbild-3D-Endlosläufer (Three.js via CDN, 1,5 MB
+                          inline Base64-Assets, Highscore-Overlay, API-Key 'rush')
+  crazyfamily-doom/     → CrazyFamily Doom: eigenständiger Unterordner (echte Doom-Engine als WASM
+                          + Freedoom-WADs). index.php + game.js/doomgeneric.* + eigene .htaccess.
+                          KEIN Highscore (Engine liefert keinen Score). WADs sind gitignored –
+                          siehe Deployment. Verlinkt von games.php.
   impressum.php         → Impressum (noindex, follow)
 partials/
   header.php            → Navigation (absolute Pfade /pages/*.php)
@@ -105,6 +113,11 @@ Alle Seiten laden `js/main.js`, `assets/js/seasonal.js` (außer impressum) und `
 | `pages/events.php` | `calendar.js` |
 | `pages/games.php` | `games/arcade.js` + die 4 Spielmodule |
 | `pages/crazyfamily-land.php` | **Ausnahme:** lädt NUR `games/arcade.js` (Highscore-Bridge) + `games/land.js` (kein main.js/seasonal/crates, keine Partials – Vollbild-Spielseite) |
+| `pages/crazyfamily-chomp.php` | **Ausnahme:** komplettes Standalone-Spiel inline + NUR `games/arcade.js` (Highscore-Bridge). Spiel feuert bei Game Over `cfgame:final` → Seite zeigt Bestenlisten-Overlay (API-Key 'chomp') |
+| `pages/crazyfamily-rush.php` | **Ausnahme:** wie Chomp (API-Key 'rush'); lädt zusätzlich Three.js + GLTF/DRACO-Loader via CDN. ~1,5 MB Datei (inline Base64-Assets) |
+| `pages/crazyfamily-doom/` | **Ausnahme:** völlig eigenständig – lädt nur `game.js` + `doomgeneric.js/.wasm`, KEIN arcade.js/Highscore. Eigene `.htaccess` (WASM-MIME, Caching) |
+
+> **Highscore-Bridge für Standalone-Spiele:** Chomp & Rush bleiben unveränderte Standalone-Spiele; die EINZIGE Spiel-Änderung ist eine Zeile am Game-Over-Punkt, die `window.dispatchEvent(new CustomEvent('cfgame:final',{detail:{score}}))` feuert. Der Overlay-Controller + die Overlay-Styles (`#cfBoard`/`.lb-*`) liegen inline in der jeweiligen Seite (sie laden bewusst NICHT `style.css`) und hängen die globale Top-10 dran – analog zu `land.js`/`cfland:final`. In `games.php` selbst sind die drei neuen Spiele Link-Kacheln (`.game-tile--chomp/--rush/--doom`, in `style.css`).
 
 **CSS-Pfade:** Root-Seite nutzt `css/style.css`, Unterseiten `../css/style.css`. Asset-/Script-Pfade in `pages/` sind absolut (`/assets/...`), nur `../js/main.js` und das Stylesheet sind relativ.
 
@@ -118,7 +131,7 @@ Alle Seiten laden `js/main.js`, `assets/js/seasonal.js` (außer impressum) und `
 | `shop-highlights.json` | Produkt-Grid + JSON-LD | `isActive` (false = ausgeblendet), `priority` (höher = weiter oben), `images[]`, `price`, `badge` |
 | `sounds.json` | Audio-Player | `titel`, `beschreibung`, `source` |
 | `events.json` | Special Events im Kalender | `date` (YYYY-MM-DD), `title`, `type` (stream/special), `note` |
-| `highscores.json` | globale Bestenliste | wird zur Laufzeit von `highscores.php` beschrieben – nie deployen/überschreiben |
+| `highscores.json` | globale Bestenliste | wird zur Laufzeit von `highscores.php` beschrieben – nie deployen/überschreiben. Erlaubte Spiel-Keys in `highscores.php` `$GAMES`: `snake`, `catcher`, `smash`, `memory`, `land`, `chomp`, `rush` (Doom hat keinen) |
 
 ---
 
@@ -159,8 +172,9 @@ Alle Seiten laden `js/main.js`, `assets/js/seasonal.js` (außer impressum) und `
 
 1. `config.php` liegt nur auf dem Server (nicht in git) – bei Neuaufsetzung manuell hochladen
 2. `assets/data/highscores.json` einmalig hochladen + **beschreibbar** machen (chmod), sonst speichert die Highscore-API nicht; bei Deploys NIE überschreiben
-3. `.htaccess` prüfen (lokaler Dateiname korrekt mit zwei „s")
-4. `TODO.md` ist gitignored – existiert nur lokal
+3. `.htaccess` prüfen (lokaler Dateiname korrekt mit zwei „s") – auch die eigene `.htaccess` in `pages/crazyfamily-doom/` mit hochladen (WASM-MIME!)
+4. **CrazyFamily Doom:** `freedoom1.wad` + `freedoom2.wad` (je ~28 MB) sind gitignored → einmalig manuell nach `pages/crazyfamily-doom/` hochladen, sonst startet Doom nicht. `doomgeneric.js/.wasm` liegen dagegen im git
+5. `TODO.md` ist gitignored – existiert nur lokal
 
 ---
 

@@ -4,3 +4,14 @@ TODO.md
 # Wächst zur Laufzeit auf dem Server – darf von Deploys nicht überschrieben werden.
 # Seed-Datei (leere Listen) einmalig manuell auf Strato hochladen + beschreibbar machen.
 assets/data/highscores.json
+
+# CrazyFamily Doom – Spieldaten (je ~28 MB). NICHT in git, sonst bläht das Repo auf.
+# Einmalig manuell auf Strato in pages/crazyfamily-doom/ hochladen (siehe README dort).
+pages/crazyfamily-doom/*.wad
+
+# Lokaler Doom-Testserver – auf Strato (Apache) nicht nötig, muss nicht gepusht werden.
+pages/crazyfamily-doom/serve.py
+
+# Übergabe-Ordner der neuen Spiele (Quell-HTML vor der PHP-Integration).
+# Nur lokal – darf nach erfolgreichem Umbau gelöscht werden.
+Games/

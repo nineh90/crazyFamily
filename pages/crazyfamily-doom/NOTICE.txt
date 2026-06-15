@@ -1,0 +1,38 @@
+CrazyFamily Doom — Lizenz- und Quellenhinweise
+================================================
+
+Zwei klar getrennte, frei lizenzierte Bausteine:
+
+1) ENGINE  ·  doomgeneric.js + doomgeneric.wasm
+   --------------------------------------------------------------------
+   WebAssembly-Build der quelloffenen Doom-Engine "doomgeneric"
+   (beruht auf dem 1997 von id Software unter der GNU General Public
+   License freigegebenen Doom-Quellcode). Reine Single-Player-Engine,
+   mit Bild + SOUND (Soundeffekte) über SDL2. Im Browser stabil und
+   ohne Grafikfehler.
+
+   Lizenz : GNU General Public License, Version 2 (GPL-2.0)
+   Quelle : https://github.com/ozkl/doomgeneric
+   GPL-Lizenztext: https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
+
+   Build: mit Emscripten (emcc) aus dem UNVERÄNDERTEN doomgeneric-
+   Quellcode, Backend "doomgeneric_emscripten.c", Ziel Makefile.emscripten.
+   Angepasst wurden nur Build-Flags (SDL2-Ports statt sdl2-config, WAD
+   wird zur Laufzeit geladen statt eingebacken, -O2 -fno-strict-aliasing
+   -fwrapv). Siehe BUILD.txt für die genauen Befehle.
+
+2) SPIELDATEN  ·  freedoom1.wad / freedoom2.wad
+   --------------------------------------------------------------------
+   Freedoom — ein vollständig freier Ersatz für die (NICHT freien)
+   Original-Spieldaten von DOOM (eigene Level, Grafiken, Sounds, Musik).
+
+   Lizenz : BSD-3-Clause (siehe freedoom-COPYING.txt)
+   Quelle : https://freedoom.github.io/  (Version 0.13.0)
+
+WICHTIG — was NICHT enthalten ist:
+   Die kommerziellen Original-WADs von id Software (DOOM.WAD, DOOM2.WAD)
+   sind urheberrechtlich geschützt und dürfen NICHT bereitgestellt
+   werden. CrazyFamily Doom nutzt ausschließlich Freedoom.
+
+"CrazyFamily" ist die Marke/Eigenleistung von Kevin Herrmann; das
+Branding (Menü, Logo, Layout) ist eigenständig.

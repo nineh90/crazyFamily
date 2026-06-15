@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CRAZYFAMILY – Mini-Games & Fun-Zone</title>
-  <meta name="description" content="Die CRAZYFAMILY Fun-Zone: kostenlose Games direkt im Browser – CrazyFamily Land (Retro-Jump'n'Run), Snake, Frucht-Fänger, Kisten-Smash & Memory. Spiele auf PC und Handy, jage den Highscore von Alex & Kevin's Community." />
+  <meta name="description" content="Die CRAZYFAMILY Fun-Zone: kostenlose Games direkt im Browser – CrazyFamily Land (Retro-Jump'n'Run), Chomp (Neon-Labyrinth), Rush (3D-Runner), Doom, Snake, Frucht-Fänger, Kisten-Smash & Memory. Spiele auf PC und Handy, jage den Highscore von Alex & Kevin's Community." />
   <meta name="keywords" content="CrazyFamily Spiele, Mini-Games, CrazyFamily Land, Jump and Run, Snake online spielen, Browser Games, Gaming Fun-Zone, Highscore, Alex und Kevin Spiele" />
   <meta name="author" content="CRAZYFAMILY" />
   <link rel="canonical" href="https://crazyfamily.info/pages/games.php" />
@@ -137,6 +137,66 @@
           "isAccessibleForFree": true,
           "publisher": { "@type": "Organization", "name": "CRAZYFAMILY", "url": "https://crazyfamily.info/" }
         }
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "item": {
+          "@type": "VideoGame",
+          "name": "CrazyFamily Chomp",
+          "alternateName": ["CrazyFamilyChomp", "Crazy Chomp"],
+          "url": "https://crazyfamily.info/pages/crazyfamily-chomp.php",
+          "description": "Neon-Labyrinth-Arcade der CRAZYFAMILY: friss die Punkte, weiche den Geistern aus und knack den Highscore – direkt im Browser.",
+          "genre": "Arcade",
+          "playMode": "SinglePlayer",
+          "gamePlatform": ["Web Browser", "PC", "Smartphone"],
+          "applicationCategory": "Game",
+          "operatingSystem": "Web",
+          "inLanguage": "de",
+          "isAccessibleForFree": true,
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+          "publisher": { "@type": "Organization", "name": "CRAZYFAMILY", "url": "https://crazyfamily.info/" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "item": {
+          "@type": "VideoGame",
+          "name": "CrazyFamily Rush",
+          "alternateName": ["CrazyFamilyRush", "Crazy Rush"],
+          "url": "https://crazyfamily.info/pages/crazyfamily-rush.php",
+          "description": "3D-Endlosläufer der CRAZYFAMILY: renn durch den Dschungel, spring, rutsch und sammle Früchte – knack den Highscore im Browser.",
+          "genre": "Endless Runner",
+          "playMode": "SinglePlayer",
+          "gamePlatform": ["Web Browser", "PC", "Smartphone"],
+          "applicationCategory": "Game",
+          "operatingSystem": "Web",
+          "inLanguage": "de",
+          "isAccessibleForFree": true,
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+          "publisher": { "@type": "Organization", "name": "CRAZYFAMILY", "url": "https://crazyfamily.info/" }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 8,
+        "item": {
+          "@type": "VideoGame",
+          "name": "CrazyFamily Doom",
+          "alternateName": ["CrazyFamilyDoom", "Crazy Doom"],
+          "url": "https://crazyfamily.info/pages/crazyfamily-doom/",
+          "description": "Echtes Doom im Browser auf Basis der quelloffenen Doom-Engine mit frei lizenzierten Freedoom-Spieldaten – 2 Phasen, Soundeffekte, Single-Player.",
+          "genre": "Ego-Shooter",
+          "playMode": "SinglePlayer",
+          "gamePlatform": ["Web Browser", "PC"],
+          "applicationCategory": "Game",
+          "operatingSystem": "Web",
+          "inLanguage": "de",
+          "isAccessibleForFree": true,
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+          "publisher": { "@type": "Organization", "name": "CRAZYFAMILY", "url": "https://crazyfamily.info/" }
+        }
       }
     ]
   }
@@ -168,8 +228,9 @@
       <h1>CRAZYFAMILY Mini-Games &amp; Fun-Zone</h1>
       <p class="bio">
         Kleine Spiele für zwischendurch – kostenlos direkt im Browser, auch am Handy.
-        Highlight ist <strong>CrazyFamily Land</strong>, unser eigenes Retro-Jump'n'Run –
-        dazu Snake, Frucht-Fänger, Kisten-Smash und Memory.
+        Highlights sind unsere eigenen Spiele <strong>CrazyFamily Land</strong> (Retro-Jump'n'Run),
+        <strong>Chomp</strong> (Neon-Labyrinth), <strong>Rush</strong> (3D-Dschungel-Runner) und
+        <strong>Doom</strong> (echtes Doom im Browser) – dazu Snake, Frucht-Fänger, Kisten-Smash und Memory.
         Knack deinen Rekord und trag dich in die Bestenliste ein! 🎮
       </p>
 
@@ -179,6 +240,21 @@
           <span class="game-tile__icon">🕹️</span>
           <span class="game-tile__name">CrazyFamily Land</span>
           <span class="game-tile__desc">Retro-Jump'n'Run: 4 Welten, 12 Level, Bosse &amp; Superball!</span>
+        </a>
+        <a class="game-tile game-tile--chomp" href="/pages/crazyfamily-chomp.php">
+          <span class="game-tile__icon">👾</span>
+          <span class="game-tile__name">CrazyFamily Chomp</span>
+          <span class="game-tile__desc">Neon-Labyrinth: friss die Punkte, flieh vor den Geistern!</span>
+        </a>
+        <a class="game-tile game-tile--rush" href="/pages/crazyfamily-rush.php">
+          <span class="game-tile__icon">🏃</span>
+          <span class="game-tile__name">CrazyFamily Rush</span>
+          <span class="game-tile__desc">3D-Dschungel-Runner: spring, rutsch &amp; sammle Früchte!</span>
+        </a>
+        <a class="game-tile game-tile--doom" href="/pages/crazyfamily-doom/">
+          <span class="game-tile__icon">🔫</span>
+          <span class="game-tile__name">CrazyFamily Doom</span>
+          <span class="game-tile__desc">Echtes Doom im Browser – 2 Phasen, Sound, Single-Player.</span>
         </a>
         <button type="button" class="game-tile game-tile--snake" data-game="snake">
           <span class="game-tile__icon">🐍</span>

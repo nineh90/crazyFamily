@@ -21,6 +21,9 @@ $GAMES = [
     'smash'   => 100000,
     'memory'  => 1000,
     'land'    => 999999,   // CrazyFamily Land (HUD zeigt max. 6 Stellen)
+    'chomp'   => 999999,   // CrazyFamily Chomp (Labyrinth-Arcade)
+    'rush'    => 999999,   // CrazyFamily Rush (3D-Endlosläufer)
+    // CrazyFamily Doom hat keinen auslesbaren Score -> bewusst keine Bestenliste
 ];
 
 $FILE = __DIR__ . '/../data/highscores.json';

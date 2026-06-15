@@ -77,6 +77,30 @@
     <priority>0.6</priority>
   </url>
 
+  <!-- CrazyFamily Chomp (Labyrinth-Arcade) -->
+  <url>
+    <loc>https://crazyfamily.info/pages/crazyfamily-chomp.php</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- CrazyFamily Rush (3D-Endlosläufer) -->
+  <url>
+    <loc>https://crazyfamily.info/pages/crazyfamily-rush.php</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- CrazyFamily Doom (Browser-Doom) -->
+  <url>
+    <loc>https://crazyfamily.info/pages/crazyfamily-doom/</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
   <!-- Impressum ist noindex und gehört daher NICHT in die Sitemap -->
 
 </urlset>
