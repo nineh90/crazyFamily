@@ -85,7 +85,7 @@ canvas#canvas {
   border: 1px solid rgba(225,27,27,.5); border-radius: 50%;
   display: flex; align-items: center; justify-content: center; touch-action: none;
 }
-.touch .t:active { background: rgba(225,27,27,.6); }
+.touch .t:active, .touch .t.on { background: rgba(225,27,27,.6); transform: scale(.94); }
 .dpad { position: absolute; left: 14px; bottom: 18px; width: 200px; height: 200px; }
 .dpad .up    { left: 72px; bottom: 130px; }
 .dpad .down  { left: 72px; bottom: 14px; }
@@ -99,8 +99,39 @@ canvas#canvas {
 .actions .enter { right: 96px; bottom: 18px; }
 .actions .esc   { right: 12px; bottom: 130px; }
 
+/* Gesten (Scroll/Zoom/Doppeltipp) auf der Spielfläche unterdrücken */
+#stage, canvas#canvas { touch-action: none; }
+
 /* ---- Footer ---- */
 #legal { position: fixed; bottom: 0; left: 0; right: 0; padding: 6px 12px; font-size: 11px;
   color: var(--muted); background: rgba(0,0,0,.4); text-align: center; }
 #legal a { color: var(--red-glow); }
 body:has(#game:not(.hidden)) #legal { display: none; }
+
+/* ===================== RESPONSIVE / MOBILE ===================== */
+@media (max-width: 560px) {
+  .screen { padding: 16px; gap: 12px; }
+  .tagline { font-size: 13px; }
+  .phase-select { gap: 12px; width: 100%; }
+  .phase-btn { min-width: 0; width: 100%; padding: 14px 16px; }
+  .phase-btn strong { font-size: 19px; }
+  .controls-grid { grid-template-columns: 1fr; gap: 6px; }
+  .topbar button { width: 36px; height: 36px; font-size: 16px; }
+  #cfHud { font-size: 12px; top: 8px; right: 10px; }
+}
+
+/* Touch-Steuerung auf sehr schmalen/niedrigen Screens kompakter */
+@media (max-width: 420px), (max-height: 460px) {
+  .touch .t { width: 50px; height: 50px; font-size: 19px; }
+  .dpad, .actions { width: 168px; height: 168px; }
+  .dpad .up { left: 60px; bottom: 108px; }
+  .dpad .down { left: 60px; bottom: 12px; }
+  .dpad .left { left: 6px; bottom: 60px; }
+  .dpad .right { left: 114px; bottom: 60px; }
+  .dpad .sl { left: 6px; bottom: 116px; width: 42px; height: 42px; font-size: 16px; }
+  .dpad .sr { left: 122px; bottom: 116px; width: 42px; height: 42px; font-size: 16px; }
+  .actions .fire { right: 60px; bottom: 80px; width: 62px; height: 62px; }
+  .actions .use { right: 10px; bottom: 24px; }
+  .actions .enter { right: 80px; bottom: 14px; }
+  .actions .esc { right: 10px; bottom: 110px; }
+}

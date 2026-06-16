@@ -28,7 +28,11 @@ python3 serve.py        # ohne Browser-Cache
 ```
 
 ## Steuerung
-- **W A S D / Pfeile** bewegen & strafen, **Q E / ← →** drehen
+- **📱 Smartphone/Tablet:** On-Screen-Touch-Steuerung (D-Pad: vor/zurück/drehen + Strafe,
+  Buttons: 🔫 Schießen, ✋ Benutzen, ↵ Bestätigen, ⎋ Menü). Erscheint automatisch auf
+  Touch-Geräten; für mehr Bild am besten Querformat + ⛶ Vollbild. Die Buttons lösen
+  synthetische Tastatur-Events aus (siehe `index.php`).
+- **Desktop – W A S D / Pfeile** bewegen & strafen, **Q E / ← →** drehen
 - **Strg** schießen · **Leertaste** benutzen · **Shift** rennen
 - **1–7** Waffen · **Tab** Karte · **Esc** Menü (Speichern/Laden)
 - 🔊 **Sound:** Soundeffekte starten mit dem ersten **Klick ins Spiel**
@@ -36,6 +40,7 @@ python3 serve.py        # ohne Browser-Cache
 
 ## Stand & Grenzen
 - ✅ **Sound (Effekte)**, sauberes Bild, stabil, Single-Player.
+- ✅ **Mobil spielbar** über die On-Screen-Touch-Steuerung (responsives Layout).
 - ⏳ **Keine Maussteuerung** (doomgeneric ist Tastatur-orientiert; Maus-Blick wäre
   ein eigener Ausbau-Schritt).
 - ⏳ **Keine Hintergrundmusik** (`-nomusic`; Dooms MUS/MIDI bräuchte einen MIDI-Synth,

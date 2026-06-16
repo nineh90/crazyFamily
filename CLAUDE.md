@@ -68,8 +68,10 @@ pages/
                           inline Base64-Assets, Highscore-Overlay, API-Key 'rush')
   crazyfamily-doom/     → CrazyFamily Doom: eigenständiger Unterordner (echte Doom-Engine als WASM
                           + Freedoom-WADs). index.php + game.js/doomgeneric.* + eigene .htaccess.
-                          KEIN Highscore (Engine liefert keinen Score). WADs sind gitignored –
-                          siehe Deployment. Verlinkt von games.php.
+                          Highscore = getötete Monster/Session: die Engine ist minimal gepatcht
+                          (cf_*-Lesefunktionen, siehe BUILD.txt/NOTICE.txt), game.js liest sie per
+                          Module.ccall und feuert cfgame:final (API-Key 'doom', arcade.js geladen).
+                          WADs sind gitignored – siehe Deployment. Verlinkt von games.php.
   impressum.php         → Impressum (noindex, follow)
 partials/
   header.php            → Navigation (absolute Pfade /pages/*.php)
@@ -115,7 +117,7 @@ Alle Seiten laden `js/main.js`, `assets/js/seasonal.js` (außer impressum) und `
 | `pages/crazyfamily-land.php` | **Ausnahme:** lädt NUR `games/arcade.js` (Highscore-Bridge) + `games/land.js` (kein main.js/seasonal/crates, keine Partials – Vollbild-Spielseite) |
 | `pages/crazyfamily-chomp.php` | **Ausnahme:** komplettes Standalone-Spiel inline + NUR `games/arcade.js` (Highscore-Bridge). Spiel feuert bei Game Over `cfgame:final` → Seite zeigt Bestenlisten-Overlay (API-Key 'chomp') |
 | `pages/crazyfamily-rush.php` | **Ausnahme:** wie Chomp (API-Key 'rush'); lädt zusätzlich Three.js + GLTF/DRACO-Loader via CDN. ~1,5 MB Datei (inline Base64-Assets) |
-| `pages/crazyfamily-doom/` | **Ausnahme:** völlig eigenständig – lädt nur `game.js` + `doomgeneric.js/.wasm`, KEIN arcade.js/Highscore. Eigene `.htaccess` (WASM-MIME, Caching) |
+| `pages/crazyfamily-doom/` | **Ausnahme:** eigenständig – lädt `game.js` + `doomgeneric.js/.wasm` + `arcade.js` (Highscore-Bridge, Key 'doom'). Eigene `.htaccess` (WASM-MIME, Caching). Score = Kills/Session über gepatchte cf_*-Engine-Exporte |
 
 > **Highscore-Bridge für Standalone-Spiele:** Chomp & Rush bleiben unveränderte Standalone-Spiele; die EINZIGE Spiel-Änderung ist eine Zeile am Game-Over-Punkt, die `window.dispatchEvent(new CustomEvent('cfgame:final',{detail:{score}}))` feuert. Der Overlay-Controller + die Overlay-Styles (`#cfBoard`/`.lb-*`) liegen inline in der jeweiligen Seite (sie laden bewusst NICHT `style.css`) und hängen die globale Top-10 dran – analog zu `land.js`/`cfland:final`. In `games.php` selbst sind die drei neuen Spiele Link-Kacheln (`.game-tile--chomp/--rush/--doom`, in `style.css`).
 
@@ -131,7 +133,7 @@ Alle Seiten laden `js/main.js`, `assets/js/seasonal.js` (außer impressum) und `
 | `shop-highlights.json` | Produkt-Grid + JSON-LD | `isActive` (false = ausgeblendet), `priority` (höher = weiter oben), `images[]`, `price`, `badge` |
 | `sounds.json` | Audio-Player | `titel`, `beschreibung`, `source` |
 | `events.json` | Special Events im Kalender | `date` (YYYY-MM-DD), `title`, `type` (stream/special), `note` |
-| `highscores.json` | globale Bestenliste | wird zur Laufzeit von `highscores.php` beschrieben – nie deployen/überschreiben. Erlaubte Spiel-Keys in `highscores.php` `$GAMES`: `snake`, `catcher`, `smash`, `memory`, `land`, `chomp`, `rush` (Doom hat keinen) |
+| `highscores.json` | globale Bestenliste | wird zur Laufzeit von `highscores.php` beschrieben – nie deployen/überschreiben. Erlaubte Spiel-Keys in `highscores.php` `$GAMES`: `snake`, `catcher`, `smash`, `memory`, `land`, `chomp`, `rush`, `doom` |
 
 ---
 

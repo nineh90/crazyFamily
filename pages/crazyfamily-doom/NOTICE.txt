@@ -15,11 +15,19 @@ Zwei klar getrennte, frei lizenzierte Bausteine:
    Quelle : https://github.com/ozkl/doomgeneric
    GPL-Lizenztext: https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt
 
-   Build: mit Emscripten (emcc) aus dem UNVERÄNDERTEN doomgeneric-
-   Quellcode, Backend "doomgeneric_emscripten.c", Ziel Makefile.emscripten.
-   Angepasst wurden nur Build-Flags (SDL2-Ports statt sdl2-config, WAD
-   wird zur Laufzeit geladen statt eingebacken, -O2 -fno-strict-aliasing
-   -fwrapv). Siehe BUILD.txt für die genauen Befehle.
+   Build: mit Emscripten (emcc) aus dem doomgeneric-Quellcode, Backend
+   "doomgeneric_emscripten.c", Ziel Makefile.emscripten. Angepasst wurden
+   die Build-Flags (SDL2-Ports statt sdl2-config, WAD wird zur Laufzeit
+   geladen statt eingebacken, -O2 -fno-strict-aliasing -fwrapv).
+
+   MODIFIKATION (GPL-2.0 §2): An doomgeneric.c wurde ein kleiner Block mit
+   reinen LESE-Funktionen angehängt (cf_kills, cf_map, cf_episode, cf_health,
+   cf_pstate, cf_gamestate, cf_usergame u.a., je EMSCRIPTEN_KEEPALIVE). Sie
+   geben Doom-interne Werte (Killcount, aktuelles Level, Spielerzustand) an
+   JavaScript zurück, damit die Webseite einen Highscore bilden kann. Die
+   Spiellogik selbst ist UNVERÄNDERT. Der vollständige Patch + die genauen
+   Build-Befehle stehen in BUILD.txt (entspricht der Quelltext-Pflicht der
+   GPL-2.0). Quelle der Engine unverändert: https://github.com/ozkl/doomgeneric
 
 2) SPIELDATEN  ·  freedoom1.wad / freedoom2.wad
    --------------------------------------------------------------------

@@ -14,7 +14,8 @@ const CFDoom = (() => {
   "use strict";
 
   // Bei jeder Engine-Änderung erhöhen — erzwingt frisches Laden (kein Browser-Cache).
-  const ENGINE_VERSION = "6";
+  // v7: Score-Bridge (cf_*-Exporte für echten Kill-/Level-Highscore).
+  const ENGINE_VERSION = "7";
 
   const WADS = {
     phase1: { file: "freedoom1.wad", label: "Phase 1" },
@@ -65,6 +66,7 @@ const CFDoom = (() => {
         (Module.callMain || window.callMain)(Module.arguments);
         canvas.focus();
         resumeAudioOnGesture();
+        startScoring();
       },
       print: function (t) { console.log(t); },
       printErr: function (t) { console.error(t); },
@@ -76,6 +78,73 @@ const CFDoom = (() => {
     s.src = "doomgeneric.js?v=" + ENGINE_VERSION;
     s.onerror = () => hooks.onStatus && hooks.onStatus("Engine konnte nicht geladen werden.");
     document.body.appendChild(s);
+  }
+
+  // ---- Score-Bridge -------------------------------------------------------
+  // Die Engine (gepatchtes doomgeneric, siehe NOTICE/BUILD) exportiert Lese-
+  // Funktionen cf_*. Daraus bilden wir einen echten Score: Summe der getöteten
+  // Monster über die ganze Session (killcount wird pro Level zurückgesetzt, wir
+  // schreiben den Stand bei jedem Levelwechsel fest). Bei Spielertod (oder per
+  // „Run beenden"-Button) feuern wir EINMAL `cfgame:final` – analog Chomp/Rush.
+  function cfRead(name) {
+    try {
+      if (window.Module && Module.ccall) return Module.ccall(name, "number", [], []) | 0;
+    } catch (e) {}
+    return 0;
+  }
+
+  function startScoring() {
+    let committed = 0;      // festgeschriebene Kills abgeschlossener Level
+    let levelMax  = 0;      // höchster Killstand des aktuellen Levels
+    let lastEp = -1, lastMap = -1;
+    let seenAlive = false;  // erst nach erstem Lebenszeichen auf Tod prüfen
+    let finalFired = false;
+
+    function levelLabel(ep, map) {
+      if (map <= 0) return "–";
+      return ep > 1 ? ("E" + ep + "M" + map)        // Phase 1 (Episoden)
+                    : ("MAP" + (map < 10 ? "0" : "") + map); // Phase 2
+    }
+    function currentScore() { return committed + levelMax; }
+
+    function finish(reason) {
+      if (finalFired) return;
+      finalFired = true;
+      window.dispatchEvent(new CustomEvent("cfgame:final", {
+        detail: { score: currentScore(), level: levelLabel(lastEp, lastMap), reason: reason || "death" }
+      }));
+    }
+    // Manueller Abschluss (Button „Run beenden") und Verlassen der Seite.
+    window.CFDoomFinish = function () { if (currentScore() > 0) finish("manual"); };
+    window.addEventListener("pagehide", function () { window.CFDoomFinish(); });
+
+    setInterval(function () {
+      if (finalFired) return;
+      // Nur echtes Nutzer-Spiel zählen – NICHT die Demo-/Titelschleife.
+      if (cfRead("cf_usergame") !== 1 || cfRead("cf_demoplayback") === 1) return;
+      const gs = cfRead("cf_gamestate");          // 0=Level 1=Intermission
+      if (gs !== 0 && gs !== 1) return;
+
+      const ep = cfRead("cf_episode"), map = cfRead("cf_map");
+      const kills = cfRead("cf_kills");
+      const health = cfRead("cf_health");
+      const pstate = cfRead("cf_pstate");         // 0=live 1=dead 2=reborn
+
+      // Levelwechsel -> Killstand des vorigen Levels festschreiben
+      if (ep !== lastEp || map !== lastMap) {
+        if (lastEp !== -1) committed += levelMax;
+        lastEp = ep; lastMap = map; levelMax = 0;
+      }
+      if (kills > levelMax) levelMax = kills;
+      if (health > 0) seenAlive = true;
+
+      window.dispatchEvent(new CustomEvent("cfdoom:score", {
+        detail: { score: currentScore(), level: levelLabel(ep, map) }
+      }));
+
+      // Tod -> Run abschließen (erst nachdem der Spieler mal gelebt hat)
+      if (seenAlive && (pstate === 1 || health <= 0)) finish("death");
+    }, 500);
   }
 
   // Browser starten Audio erst nach einer Nutzer-Geste; bei Klick fortsetzen.

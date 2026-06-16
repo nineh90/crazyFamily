@@ -1,7 +1,7 @@
 So wurde die Engine (doomgeneric.js + doomgeneric.wasm) gebaut
 ==============================================================
 
-Basis: https://github.com/ozkl/doomgeneric  (UNVERÄNDERTER Quellcode)
+Basis: https://github.com/ozkl/doomgeneric  (Quellcode + unten dokumentierter Patch)
 Toolchain: Emscripten (emcc).
 
 1) doomgeneric klonen:
@@ -10,21 +10,42 @@ Toolchain: Emscripten (emcc).
 
 2) In Makefile.emscripten die SDL-Flags auf Emscripten-Ports umstellen
    (statt des nicht vorhandenen sdl2-config), WAD NICHT einbacken und
-   die Laufzeit so einstellen, dass wir main() selbst per callMain starten:
+   die Laufzeit so einstellen, dass wir main() selbst per callMain starten
+   (zusätzlich ccall/cwrap für die Score-Funktionen exportieren):
 
      SDL_CFLAGS = -sUSE_SDL=2 -sUSE_SDL_MIXER=2
      SDL_LIBS   = -sUSE_SDL=2 -sUSE_SDL_MIXER=2
      LDFLAGS += -sALLOW_MEMORY_GROWTH=1 -sINITIAL_MEMORY=268435456 \
-                -sEXIT_RUNTIME=0 -sINVOKE_RUN=0 \
-                -sEXPORTED_RUNTIME_METHODS=callMain,FS -sFORCE_FILESYSTEM=1
+                -sEXIT_RUNTIME=0 -sINVOKE_RUN=0 -sFORCE_FILESYSTEM=1 \
+                -sEXPORTED_RUNTIME_METHODS=callMain,FS,ccall,cwrap
      # (das ursprüngliche "--preload-file doom1.wad" entfernen)
+     # Ausgabe als .js: im Link-Schritt "-o $(OUTPUT).js" statt ".html"
 
-3) Bauen (der Renderer braucht -fno-strict-aliasing -fwrapv für korrektes Bild):
+3) SCORE-PATCH (GPL-2.0 §2, siehe NOTICE.txt): ans Ende von doomgeneric.c
+   anhängen — reine Lese-Funktionen, keine Änderung der Spiellogik:
+
+     #include <emscripten.h>
+     #include "doomstat.h"   /* players[], gamemap, gamestate, usergame, ... */
+     EMSCRIPTEN_KEEPALIVE int cf_kills(void)      { return players[0].killcount;   }
+     EMSCRIPTEN_KEEPALIVE int cf_items(void)      { return players[0].itemcount;   }
+     EMSCRIPTEN_KEEPALIVE int cf_secrets(void)    { return players[0].secretcount; }
+     EMSCRIPTEN_KEEPALIVE int cf_health(void)     { return players[0].health;      }
+     EMSCRIPTEN_KEEPALIVE int cf_pstate(void)     { return (int)players[0].playerstate; }
+     EMSCRIPTEN_KEEPALIVE int cf_map(void)        { return gamemap;                }
+     EMSCRIPTEN_KEEPALIVE int cf_episode(void)    { return gameepisode;            }
+     EMSCRIPTEN_KEEPALIVE int cf_gamestate(void)  { return (int)gamestate;         }
+     EMSCRIPTEN_KEEPALIVE int cf_totalkills(void) { return totalkills;             }
+     EMSCRIPTEN_KEEPALIVE int cf_usergame(void)   { return usergame ? 1 : 0;       }
+     EMSCRIPTEN_KEEPALIVE int cf_demoplayback(void){ return demoplayback ? 1 : 0;  }
+
+4) Bauen (der Renderer braucht -fno-strict-aliasing -fwrapv für korrektes Bild):
      emsdk aktivieren, dann:
      CFLAGS="-O2 -fno-strict-aliasing -fwrapv" make -f Makefile.emscripten -j4
 
-4) Ergebnis: doomgeneric.js + doomgeneric.wasm
+5) Ergebnis: doomgeneric.js + doomgeneric.wasm
    → als doomgeneric.js / doomgeneric.wasm in den CrazyFamilyDoom-Ordner.
+   game.js liest die cf_*-Funktionen per Module.ccall und bildet daraus den
+   Kill-Highscore (Event cfgame:final). ENGINE_VERSION in game.js erhöhen!
 
 Die WAD (freedoom1/2.wad) wird zur Laufzeit von game.js per fetch geladen und
 ins Emscripten-Dateisystem geschrieben; gestartet wird mit
