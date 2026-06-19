@@ -24,6 +24,7 @@ $GAMES = [
     'chomp'   => 999999,   // CrazyFamily Chomp (Labyrinth-Arcade)
     'rush'    => 999999,   // CrazyFamily Rush (3D-Endlosläufer)
     'doom'    => 100000,   // CrazyFamily Doom: getötete Monster/Session (gepatchte Engine, cf_*-Exporte)
+    'tetris'  => 9999999,  // CrazyFamily Tetris (Block-Puzzle, Score kann groß werden)
 ];
 
 $FILE = __DIR__ . '/../data/highscores.json';

@@ -101,6 +101,14 @@
     <priority>0.6</priority>
   </url>
 
+  <!-- CrazyFamily Tetris (Block-Puzzle) -->
+  <url>
+    <loc>https://crazyfamily.info/pages/crazyfamily-tetris.php</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
   <!-- Impressum ist noindex und gehört daher NICHT in die Sitemap -->
 
 </urlset>

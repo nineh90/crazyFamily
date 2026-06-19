@@ -2737,10 +2737,12 @@ body {
 /* Weitere eigenständige Spielseiten (Link-Kacheln) */
 .game-tile--chomp,
 .game-tile--rush,
-.game-tile--doom { text-decoration: none; }
-.game-tile--chomp { --accent: var(--orange); }
-.game-tile--rush  { --accent: var(--lime); }
-.game-tile--doom  { --accent: var(--yt); }
+.game-tile--doom,
+.game-tile--tetris { text-decoration: none; }
+.game-tile--chomp  { --accent: var(--orange); }
+.game-tile--rush   { --accent: var(--lime); }
+.game-tile--doom   { --accent: var(--yt); }
+.game-tile--tetris { --accent: var(--purple); }
 
 @media (min-width: 720px) {
   .games-grid { grid-template-columns: repeat(4, 1fr); }

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CRAZYFAMILY – Mini-Games & Fun-Zone</title>
-  <meta name="description" content="Die CRAZYFAMILY Fun-Zone: kostenlose Games direkt im Browser – CrazyFamily Land (Retro-Jump'n'Run), Chomp (Neon-Labyrinth), Rush (3D-Runner), Doom, Snake, Frucht-Fänger, Kisten-Smash & Memory. Spiele auf PC und Handy, jage den Highscore von Alex & Kevin's Community." />
+  <meta name="description" content="Die CRAZYFAMILY Fun-Zone: kostenlose Games direkt im Browser – CrazyFamily Land (Retro-Jump'n'Run), Chomp (Neon-Labyrinth), Rush (3D-Runner), Doom, Tetris, Snake, Frucht-Fänger, Kisten-Smash & Memory. Spiele auf PC und Handy, jage den Highscore von Alex & Kevin's Community." />
   <meta name="keywords" content="CrazyFamily Spiele, Mini-Games, CrazyFamily Land, Jump and Run, Snake online spielen, Browser Games, Gaming Fun-Zone, Highscore, Alex und Kevin Spiele" />
   <meta name="author" content="CRAZYFAMILY" />
   <link rel="canonical" href="https://crazyfamily.info/pages/games.php" />
@@ -197,6 +197,26 @@
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
           "publisher": { "@type": "Organization", "name": "CRAZYFAMILY", "url": "https://crazyfamily.info/" }
         }
+      },
+      {
+        "@type": "ListItem",
+        "position": 9,
+        "item": {
+          "@type": "VideoGame",
+          "name": "CrazyFamily Tetris",
+          "alternateName": ["CrazyFamilyTetris", "Crazy Tetris"],
+          "url": "https://crazyfamily.info/pages/crazyfamily-tetris.php",
+          "description": "Block-Puzzle der CRAZYFAMILY im Neon-Look: jeder Stein ist Alex oder Kevin – stapeln, Reihen füllen, Linien sprengen und den Highscore knacken.",
+          "genre": "Puzzle",
+          "playMode": "SinglePlayer",
+          "gamePlatform": ["Web Browser", "PC", "Smartphone"],
+          "applicationCategory": "Game",
+          "operatingSystem": "Web",
+          "inLanguage": "de",
+          "isAccessibleForFree": true,
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+          "publisher": { "@type": "Organization", "name": "CRAZYFAMILY", "url": "https://crazyfamily.info/" }
+        }
       }
     ]
   }
@@ -230,7 +250,8 @@
         Kleine Spiele für zwischendurch – kostenlos direkt im Browser, auch am Handy.
         Highlights sind unsere eigenen Spiele <strong>CrazyFamily Land</strong> (Retro-Jump'n'Run),
         <strong>Chomp</strong> (Neon-Labyrinth), <strong>Rush</strong> (3D-Dschungel-Runner) und
-        <strong>Doom</strong> (echtes Doom im Browser) – dazu Snake, Frucht-Fänger, Kisten-Smash und Memory.
+        <strong>Doom</strong> (echtes Doom im Browser) und <strong>Tetris</strong> (Block-Puzzle) –
+        dazu Snake, Frucht-Fänger, Kisten-Smash und Memory.
         Knack deinen Rekord und trag dich in die Bestenliste ein! 🎮
       </p>
 
@@ -255,6 +276,11 @@
           <span class="game-tile__icon">🔫</span>
           <span class="game-tile__name">CrazyFamily Doom</span>
           <span class="game-tile__desc">Echtes Doom im Browser – 2 Phasen, Sound, Single-Player.</span>
+        </a>
+        <a class="game-tile game-tile--tetris" href="/pages/crazyfamily-tetris.php">
+          <span class="game-tile__icon">🧱</span>
+          <span class="game-tile__name">CrazyFamily Tetris</span>
+          <span class="game-tile__desc">Block-Puzzle: jeder Stein ist Alex oder Kevin – sprenge Reihen!</span>
         </a>
         <button type="button" class="game-tile game-tile--snake" data-game="snake">
           <span class="game-tile__icon">🐍</span>
