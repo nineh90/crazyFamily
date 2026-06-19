@@ -69,7 +69,16 @@ pages/
   crazyfamily-tetris.php→ CrazyFamily Tetris: Vollbild-Block-Puzzle (eigene Inline-Styles, lädt
                           bewusst NICHT style.css). Jeder Stein trägt Alex/Kevin (inline Base64-Assets).
                           Highscore-Overlay via arcade.js, feuert bei Game Over cfgame:final
-                          (API-Key 'tetris'); verlinkt von games.php
+                          (API-Key 'tetris'); verlinkt von games.php. LIVE seit 2026-06-19.
+                          Responsive-Eigenheiten (vom Original abweichend, bewusst so):
+                          • Desktop: html+body overflow:hidden (kein Scrollbar), Board-Zelle auf
+                            max. 40px gedeckelt, fit() reserviert 90px für die fixe Fußleiste.
+                          • Mobil (≤880px): KEIN Steuerkreuz – Gestensteuerung direkt auf #board
+                            (Tippen=Drehen, Wischen=Bewegen/Soft-Drop, Schnipsen=Hard-Drop,
+                            Hoch=Halten); Vorschau-Spalte (.col.right) + Logo-Panel ausgeblendet,
+                            Stats als kompakte Kopfleiste; fit() reserviert nur 150px.
+                          • Tastatur-Legende NUR im rechten Seitenpanel (#sideKeys), NICHT im
+                            Start-Overlay (sonst Overlay-Scrollbar).
   crazyfamily-doom/     → CrazyFamily Doom: eigenständiger Unterordner (echte Doom-Engine als WASM
                           + Freedoom-WADs). index.php + game.js/doomgeneric.* + eigene .htaccess.
                           Highscore = getötete Monster/Session: die Engine ist minimal gepatcht
@@ -181,7 +190,8 @@ Alle Seiten laden `js/main.js`, `assets/js/seasonal.js` (außer impressum) und `
 2. `assets/data/highscores.json` einmalig hochladen + **beschreibbar** machen (chmod), sonst speichert die Highscore-API nicht; bei Deploys NIE überschreiben
 3. `.htaccess` prüfen (lokaler Dateiname korrekt mit zwei „s") – auch die eigene `.htaccess` in `pages/crazyfamily-doom/` mit hochladen (WASM-MIME!)
 4. **CrazyFamily Doom:** `freedoom1.wad` + `freedoom2.wad` (je ~28 MB) sind gitignored → einmalig manuell nach `pages/crazyfamily-doom/` hochladen, sonst startet Doom nicht. `doomgeneric.js/.wasm` liegen dagegen im git
-5. `TODO.md` ist gitignored – existiert nur lokal
+5. **CrazyFamily Tetris/Chomp/Rush:** komplett selbstständige .php-Seiten mit inline Base64-Assets – KEINE Zusatzdateien nötig. Beim Deploy nur die .php (+ ggf. style.css/games.php/sitemap) übertragen; neue Spiele brauchen nur ihren Key in `highscores.php` `$GAMES` (Tetris-Key 'tetris' ist live). `highscores.json` dabei NIE überschreiben (Altbestand)
+6. `TODO.md` ist gitignored – existiert nur lokal
 
 ---
 
@@ -193,6 +203,6 @@ Alle Seiten laden `js/main.js`, `assets/js/seasonal.js` (außer impressum) und `
 | 2 – PHP-Migration | ✅ fertig |
 | 3 – SEO | ✅ fertig |
 | 4 – Features (Events, Community) | 🟩 fast fertig – Discord-Webhook für Community-Feed offen (braucht externe Konfiguration) |
-| 5 – Easter Eggs + Mini-Games | 🟩 fast fertig – optionale „Schutzmaske" (Fly-by) offen |
+| 5 – Easter Eggs + Mini-Games | 🟩 fast fertig – optionale „Schutzmaske" (Fly-by) offen. CrazyFamily Tetris ergänzt + LIVE (2026-06-19, responsive/Gesten-Steuerung) |
 
 **Bekannte Inkonsistenz:** TODO.md führt das Livestream-Status-Banner (4.1, `livestream.json`/`livestream.js`) als erledigt, die Dateien wurden aber in Commit `d45a09c` wieder gelöscht. Bei Bedarf neu umsetzen, nicht als vorhanden voraussetzen.
